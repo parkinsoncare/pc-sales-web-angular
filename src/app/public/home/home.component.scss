@@ -1,0 +1,24 @@
+.idle {
+   background-color: transparent;
+ }
+
+.success {
+  background-color: lightgreen;
+}
+
+.failure {
+  background-color: pink;
+}
+
+.loading {
+  background-color: yellow;
+}
+
+pre {
+  overflow-x: auto;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}

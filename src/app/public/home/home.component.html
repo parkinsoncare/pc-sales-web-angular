@@ -1,0 +1,58 @@
+<div fxLayout="row" fxLayoutAlign="space-around">
+  <div fxFlex="50%" fxFlex.lt-sm="100%">
+    <mat-card class="full-width api-cards">
+      <mat-card-title>Public Home Page</mat-card-title>
+      Need some text here
+    </mat-card>
+  </div>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="center">
+  <div fxFlex="1%">
+    <button mat-raised-button color="primary" (click)="loadData()">Reload All Rest Calls</button>
+  </div>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="space-around" fxLayoutGap="4%" fxLayout.lt-sm="column">
+  <div fxFlex="25%" fxFlex.lt-sm="100%">
+    <mat-card class="full-width " [ngClass]="publicGetStatus">
+      <mat-card-title>Public Get Call Test</mat-card-title>
+      <div *ngIf="publicGetRestResult">
+        {{publicGetRestResult|json:'pretty'}}
+      </div>
+      <div *ngIf="!publicGetRestResult">No result from public GET call.</div>
+    </mat-card>
+  </div>
+  <div fxFlex="25%" fxFlex.lt-sm="100%">
+    <mat-card class="full-width " [ngClass]="publicPostStatus">
+      <mat-card-title>Public POST Call Test</mat-card-title>
+      <div *ngIf="publicPostRestResult">
+        <pre>{{publicPostRestResult|json:'pretty'}}</pre>
+      </div>
+      <div *ngIf="!publicPostRestResult">No result from public PUT call.</div>
+    </mat-card>
+  </div>
+</div>
+
+
+
+<div fxLayout="row" fxLayoutAlign="space-around" fxLayoutGap="4%" fxLayout.lt-sm="column">
+  <div fxFlex="25%" fxFlex.lt-sm="100%">
+    <mat-card class="full-width " [ngClass]="privateGetStatus">
+      <mat-card-title>Private Get Call Test</mat-card-title>
+      <div *ngIf="privateGetRestResult">
+        <pre>{{privateGetRestResult|json:'pretty'}}</pre>
+      </div>
+      <div *ngIf="!privateGetRestResult">No result from public GET call.</div>
+    </mat-card>
+  </div>
+  <div fxFlex="25%" fxFlex.lt-sm="100%">
+    <mat-card class="full-width " [ngClass]="privatePostStatus">
+      <mat-card-title>Private POST Call Test</mat-card-title>
+      <div *ngIf="privatePostRestResult">
+        <pre>{{privatePostRestResult|json:'pretty'}}</pre>
+      </div>
+      <div *ngIf="!privatePostRestResult">No result from public PUT call.</div>
+    </mat-card>
+  </div>
+</div>
