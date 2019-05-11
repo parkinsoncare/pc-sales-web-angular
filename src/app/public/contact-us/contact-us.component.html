@@ -1,0 +1,74 @@
+<div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around">
+  <div fxFlex="50%" fxFlex.lt-sm="100%">
+    <mat-card>
+      <mat-card-title>
+        Contact Us...
+      </mat-card-title>
+      <mat-card-content>
+        To learn more about ComplyFS and the services we offer, write us below and we will schedule a call. Please include your location to allow us to assign the appropriate sales experts.
+      </mat-card-content>
+    </mat-card>
+    <mat-card>
+      <form [formGroup]="salesForm" novalidate (ngSubmit)="onSubmit()" class="sales-form">
+        <div fxLayout="column">
+          <div fxFlex>
+            <mat-form-field class="sales-full-width">
+              <input id="scName" matInput placeholder="Contact Name" formControlName="name">
+              <mat-hint align="end"><strong>Required</strong> </mat-hint>
+            </mat-form-field>
+          </div>
+          <div fxFlex>
+            <mat-form-field class="sales-full-width">
+              <input id="scCompany" matInput placeholder="Company Name" formControlName="company">
+            </mat-form-field>
+          </div>
+          <div fxFlex>
+            <mat-form-field class="sales-full-width">
+              <input id="scEmail" matInput type="email" placeholder="Email" formControlName="email">
+              <mat-hint align="end"><strong>Required</strong> </mat-hint>
+            </mat-form-field>
+          </div>
+          <div fxFlex>
+            <mat-form-field class="sales-full-width">
+              <input id="scTelephone" matInput placeholder="Telephone" formControlName="telephone">
+              <mat-hint align="end"><strong>Required</strong> </mat-hint>
+            </mat-form-field>
+          </div>
+          <div fxFlex>
+            <mat-form-field class="sales-full-width">
+              <input id="scCountry" matInput placeholder="Country" formControlName="country">
+            </mat-form-field>
+          </div>
+          <div fxFlex>
+            <mat-form-field class="full-width sales-full-width">
+              <textarea id="scComment" matInput placeholder="I am interested in..." formControlName="comment"></textarea>
+            </mat-form-field>
+          </div>
+          <div fxFlex>
+            <button mat-raised-button color="primary" type="submit" [disabled]="!salesForm.valid">Contact Me</button>
+          </div>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+  <div fxFlex="30%" fxFlex.lt-sm="100%">
+    <mat-card>
+      <strong>ComplyFS</strong><br><br>
+      Contact us at:<br>
+      <a href="mailto:sales@complyfs.com">sales@ComplyFS.com</a><br><br>
+      <address>
+        <strong>US:</strong><br>
+        475 Park Avenue South, 22nd Floor<br>
+        New York, NY 10016<br>
+        <abbr title="Phone">Tel:</abbr> +1 (212) 913-9510
+      </address>
+      <address>
+        <strong>Europe:</strong><br>
+        Via Copernico, 38<br>
+        Milano, Italy<br>
+        <abbr title="Phone">Tel:</abbr> +39 333 146 5393
+      </address>
+    </mat-card>
+  </div>
+</div>
+
