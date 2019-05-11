@@ -1,0 +1,22 @@
+<div md-dialog-title>
+  Login Required
+</div>
+
+<mat-dialog-content>
+  <div>
+    You must log-in to proceed.
+  </div>
+  <br>
+  <div class="authLink">
+    <a class="notALink" (click)="goToLogin()" >Log-in</a>
+  </div>
+  <br>
+  <div class="authLink">
+    <a class="notALink" (click)="goToSalesContact()" >Contact us to sign up!</a>
+  </div>
+  <br>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="closeDialog()">Close</button>
+</mat-dialog-actions>

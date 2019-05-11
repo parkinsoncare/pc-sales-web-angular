@@ -1,0 +1,27 @@
+<mat-sidenav-container class="sideNavContainer">
+
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="false"
+               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               [opened]="auth.authenticated()">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/public/contactus">Contact Us</a>
+      <mat-divider></mat-divider>
+      <div *ngIf="auth.authenticated()">
+        <a mat-list-item (click)="auth.logout(); router.navigate(['/public/home']);">Logout</a>
+      </div>
+      <div *ngIf="!auth.authenticated()">
+        <div>
+          <a mat-list-item (click)="auth.loginPopup()">Login</a>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="auth-container">
+
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
