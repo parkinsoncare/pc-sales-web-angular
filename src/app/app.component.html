@@ -1,21 +1,54 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<mat-toolbar class="cfsToolbar" color="secondary">
+  <button
+    type="button"
+    aria-label="Toggle sidenav"
+    mat-icon-button
+    (click)="toggleMenus()"
+    *ngIf="(router.url.indexOf('/cfs/')===0) || (isHandset$ | async)"
+  >
+    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+  </button>
+  <!--<span routerLink="/public">-->
+  <span><img routerLink="/public" class="logo" [ngClass.lt-sm]="{ 'logo':false, 'logoltsm': true}" src="./../assets/public/logo.png"></span>
+  <span id="siteTitle" routerLink="/public">{{title}}</span>
+  <!--</span>-->
+
+  <!--<span class="devWarning" *ngIf="!env.production">Dev environment.</span>-->
+
+
+  <span *ngIf="(isHandset$ | async) ? false : true">
+    <span>
+      <button *ngIf="!auth.authenticated()" mat-button color="primary" class=" navButtonRight btnTextColor menuText" routerLink="/private">Dashboard</button>
+    </span>
+  </span>
+
+  <span class="example-spacer"></span>
+
+  <span *ngIf="(isHandset$ | async) ? false : true">
+    <span>
+      <button *ngIf="!auth.authenticated()" mat-button color="primary" class=" navButtonRight btnTextColor menuText" routerLink="/public/contactus">Contact Sales</button>
+    </span>
+    <span *ngIf="auth.authenticated()" class=" userName menuText">Welcome, {{auth.nickname()}}</span>
+    <span>
+      <button *ngIf="!auth.authenticated()" mat-button color="primary" class="loginLogoutText navButtonRight btnTextColor menuText" [ngClass.lt-sm]="{ 'loginLogoutText':false, 'loginLogoutTextltsm': true}"(click)="auth.loginPopup()">Login</button>
+    </span>
+    <span>
+      <button *ngIf="auth.authenticated()" (click)="auth.logout(); router.navigate(['/public/home']);" mat-button color="black" class="float-right loginLogoutText navButtonRight btnTextColor menuText" >Logout</button>
+    </span>
+  </span>
+
+</mat-toolbar>
 
 <router-outlet></router-outlet>
+
+
+
+<div class="footer">
+  <div id="footerContactUs">
+    <a routerLink="/public/contactus">Contact Us</a>
+  </div>
+
+  <div id="footerCopyright">
+    © 2018-2019. All Rights Reserved - ComplyFS
+  </div>
+</div>
