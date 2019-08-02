@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
-import { MatDrawer } from '@angular/material';
+import { MatDrawer } from '@angular/material/sidenav';
 import { Subscription, Observable } from 'rxjs';
 import { MenuToggleBroadcastService } from '../../services/menu-toggle-broadcast/menu-toggle-broadcast.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
