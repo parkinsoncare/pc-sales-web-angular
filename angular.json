@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "pronto-stack-angular": {
+    "web-angular": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/pronto-stack-angular",
+            "outputPath": "dist/web-angular",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -55,25 +55,66 @@
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
                 }
-              ]
+              ],
+              "outputPath": "dist/en/"
+            },
+            "production-it": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ],
+              "outputPath": "dist/it/",
+              "i18nFile": "src/locale/messages.it.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "it",
+              "i18nMissingTranslation": "error"
+            },
+            "it": {
+              "aot": true,
+              "outputPath": "dist/my-project-it/",
+              "i18nFile": "src/locale/messages.it.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "it",
+              "i18nMissingTranslation": "error"
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "pronto-stack-angular:build"
+            "browserTarget": "web-angular:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "pronto-stack-angular:build:production"
+              "browserTarget": "web-angular:build:production"
+            },
+            "it": {
+              "browserTarget": "web-angular:build:it"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "pronto-stack-angular:build"
+            "browserTarget": "web-angular:build"
           }
         },
         "test": {
@@ -107,7 +148,7 @@
         }
       }
     },
-    "pronto-stack-angular-e2e": {
+    "web-angular-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -116,11 +157,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "pronto-stack-angular:serve"
+            "devServerTarget": "web-angular:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "pronto-stack-angular:serve:production"
+              "devServerTarget": "web-angular:serve:production"
             }
           }
         },
@@ -136,5 +177,5 @@
       }
     }
   },
-  "defaultProject": "pronto-stack-angular"
+  "defaultProject": "web-angular"
 }

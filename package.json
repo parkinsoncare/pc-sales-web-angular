@@ -5,9 +5,13 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build-i18n:en": "ng build --configuration=production",
+    "build-i18n:it": "ng build --configuration=production-it",
+    "build-i18n": "npm run build-i18n:en && npm run build-i18n:it",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "i18n": "ng xi18n --output-path src/i18n"
   },
   "private": true,
   "dependencies": {
