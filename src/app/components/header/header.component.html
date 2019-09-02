@@ -1,0 +1,41 @@
+<mat-toolbar class="cfsToolbar" color="secondary">
+
+  <div fxLayout="row" class="full-width">
+
+    <button
+      fxFlex fxFlexAlign="start center"
+      type="button"
+      aria-label="Toggle sidenav"
+      mat-icon-button
+      (click)="toggleMenus()"
+      *ngIf="((router.url.indexOf('/dashboard/') > -1) ||isHandset$ | async)"
+    >
+      <!-- line 7 ngIf used to have "router.url.indexOf('/cfs/')===0) ||" -->
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+    <!--<span routerLink="/public">-->
+    <span fxFlex fxFlexAlign="start center" ><img routerLink="/public" class="logo" [ngClass.lt-sm]="{ 'logo':false, 'logoltsm': true}" src="./../assets/public/logo.png"></span>
+
+    <span fxFlex fxFlexAlign="start center" id="site-title" routerLink="/public">{{env.companyName}}</span>
+    <!--</span>-->
+
+    <span fxFlex fxFlexAlign="start center" id="dev-warning" *ngIf="!env.production">Dev environment</span>
+
+    <span fxFlex fxFlexAlign="center center" class="example-spacer"></span>
+
+    <span *ngIf="(isHandset$ | async) ? false : true">
+      <button fxFlex fxFlexAlign="end center" mat-button color="primary" class="btnTextColor menuText" routerLink="/private">Dashboard</button>
+
+      <button fxFlex fxFlexAlign="end center" *ngIf="!auth.loggedIn" mat-button color="primary" class="btnTextColor menuText" routerLink="/public/contactus">Contact Sales</button>
+
+      <span fxFlex fxFlexAlign="end center" *ngIf="(auth.userProfile$ | async) as profile" class="">Welcome, {{profile.nickname}} <img [src]="profile.picture" class="logo" [ngClass.lt-sm]="{ 'logo':false, 'logoltsm': true}" ></span>
+
+      <button fxFlex fxFlexAlign="end center" *ngIf="!auth.loggedIn" mat-button color="primary" class=" loginLogoutText btnTextColor menuText" [ngClass.lt-sm]="{ 'loginLogoutText':false, 'loginLogoutTextltsm': true}"(click)="auth.login()">Login</button>
+
+      <button fxFlex fxFlexAlign="end center" *ngIf="auth.loggedIn" (click)="auth.logout();" mat-button color="black" class="float-right loginLogoutText  btnTextColor menuText" >Logout!</button>
+
+    </span>
+
+  </div>
+
+</mat-toolbar>

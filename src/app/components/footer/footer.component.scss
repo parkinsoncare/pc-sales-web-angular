@@ -1,0 +1,20 @@
+.footer {
+  height: 20px;
+  font-size: small;
+  color: #607D8B;
+  display: inline;
+  text-align: center;
+  padding-top: 3px;
+  display: flex;
+}
+
+#footerCopyright {
+  width: 33%;
+  text-align: center;
+}
+
+#footerContactUs {
+  width: 33%;
+  padding-left: 10px;
+  text-align: left;
+}
