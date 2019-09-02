@@ -1,54 +1,5 @@
-<mat-toolbar class="cfsToolbar" color="secondary">
-  <button
-    type="button"
-    aria-label="Toggle sidenav"
-    mat-icon-button
-    (click)="toggleMenus()"
-    *ngIf="(router.url.indexOf('/cfs/')===0) || (isHandset$ | async)"
-  >
-    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-  </button>
-  <!--<span routerLink="/public">-->
-  <span><img routerLink="/public" class="logo" [ngClass.lt-sm]="{ 'logo':false, 'logoltsm': true}" src="./../assets/public/logo.png"></span>
-  <span id="siteTitle" routerLink="/public">{{title}}</span>
-  <!--</span>-->
-
-  <!--<span class="devWarning" *ngIf="!env.production">Dev environment.</span>-->
-
-
-  <span *ngIf="(isHandset$ | async) ? false : true">
-    <span>
-      <button *ngIf="!auth.authenticated()" mat-button color="primary" class=" navButtonRight btnTextColor menuText" routerLink="/private">Dashboard</button>
-    </span>
-  </span>
-
-  <span class="example-spacer"></span>
-
-  <span *ngIf="(isHandset$ | async) ? false : true">
-    <span>
-      <button *ngIf="!auth.authenticated()" mat-button color="primary" class=" navButtonRight btnTextColor menuText" routerLink="/public/contactus">Contact Sales</button>
-    </span>
-    <span *ngIf="auth.authenticated()" class=" userName menuText">Welcome, {{auth.nickname()}}</span>
-    <span>
-      <button *ngIf="!auth.authenticated()" mat-button color="primary" class="loginLogoutText navButtonRight btnTextColor menuText" [ngClass.lt-sm]="{ 'loginLogoutText':false, 'loginLogoutTextltsm': true}"(click)="auth.loginPopup()">Login</button>
-    </span>
-    <span>
-      <button *ngIf="auth.authenticated()" (click)="auth.logout(); router.navigate(['/public/home']);" mat-button color="black" class="float-right loginLogoutText navButtonRight btnTextColor menuText" >Logout</button>
-    </span>
-  </span>
-
-</mat-toolbar>
+<header></header>
 
 <router-outlet></router-outlet>
 
-
-
-<div class="footer">
-  <div id="footerContactUs">
-    <a routerLink="/public/contactus">Contact Us</a>
-  </div>
-
-  <div id="footerCopyright">
-    © 2018-2019. All Rights Reserved - ComplyFS
-  </div>
-</div>
+<footer></footer>

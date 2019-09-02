@@ -16,6 +16,10 @@ import { PrivateRootComponent } from './private/private-root/private-root.compon
 import { DashboardComponent } from './private/dashboard/dashboard.component';
 import { LoginRequiredDialogComponent } from './guards/login-required-dialog/login-required-dialog.component';
 import { environment } from '../environments/environment';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { CallbackComponent } from './public/callback/callback.component';
+import { TestHeaderComponent } from './components/test-header/test-header.component';
 
 // https://www.npmjs.com/package/@auth0/angular-jwt
 export function newGetToken () {
@@ -30,7 +34,11 @@ export function newGetToken () {
     ContactUsComponent,
     PrivateRootComponent,
     DashboardComponent,
-    LoginRequiredDialogComponent
+    LoginRequiredDialogComponent,
+    HeaderComponent,
+    FooterComponent,
+    CallbackComponent,
+    TestHeaderComponent,
   ],
   imports: [
     BrowserModule,

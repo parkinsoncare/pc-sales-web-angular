@@ -6,6 +6,9 @@ import { ContactUsComponent } from './public/contact-us/contact-us.component';
 import { PrivateRootComponent } from './private/private-root/private-root.component';
 import { DashboardComponent } from './private/dashboard/dashboard.component';
 import { AuthenticatedGuard } from './guards/authenticated/authenticated.guard';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpInterceptorService } from './services/http-interceptor/http-interceptor.service';
+import { CallbackComponent } from './public/callback/callback.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/public/home', pathMatch: 'full' },
@@ -13,20 +16,30 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
-      { path: 'contactus', component: ContactUsComponent }
+      { path: 'contactus', component: ContactUsComponent },
+      { path: 'callback', component: CallbackComponent }
     ]
   },
   {
     path: 'private', component: PrivateRootComponent, canActivateChild: [AuthenticatedGuard],
     children: [
-      {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-      {path: 'dashboard', component: DashboardComponent}
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+      { path: 'dashboard', component: DashboardComponent}
     ]
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [
+
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true
+    }
+
+  ]
 })
 export class AppRoutingModule { }

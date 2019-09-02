@@ -33,7 +33,9 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.auth.handleAuthentication();
+    //this.auth.handleAuthentication();
+    //this.auth.handleAuthCallback();
+    this.auth.localAuthSetup();
     this.route.url.subscribe(url => { this.url = url.join(); }, e => { this.url = ''; } );
   }
 
