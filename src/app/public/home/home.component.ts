@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
   constructor(private restService: RestService) { }
 
   ngOnInit() {
-    setTimeout(() => { this.loadData(); }, 1000);
+    //setTimeout(() => { this.loadData(); }, 1000);
   }
 
   loadData() {
@@ -80,6 +80,7 @@ export class HomeComponent implements OnInit {
         this.privatePostRestResult = error;
         this.privatePostStatus = RestStatus.Failure;
       });
+
   }
 
 }
