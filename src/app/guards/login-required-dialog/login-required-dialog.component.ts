@@ -16,11 +16,11 @@ export class LoginRequiredDialogComponent implements OnInit {
   }
 
   goToLogin() {
-    this.auth.loginPopup();
+    this.auth.login();
   }
 
   goToSignup() {
-    this.auth.signupPopup();
+    this.auth.login();
   }
 
   goToSalesContact() {
