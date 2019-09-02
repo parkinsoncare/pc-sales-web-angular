@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { GtagModule } from 'angular-gtag';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -47,6 +48,7 @@ export function newGetToken () {
     MaterialIoModule,
     FlexLayoutModule,
     HttpClientModule,
+    NgbModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: newGetToken,
