@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
   constructor(private restService: RestService) { }
 
   ngOnInit() {
-    //setTimeout(() => { this.loadData(); }, 1000);
+
   }
 
   loadData() {

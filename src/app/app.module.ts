@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { JwtModule } from '@auth0/angular-jwt';
+// import { JwtModule } from '@auth0/angular-jwt';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { GtagModule } from 'angular-gtag';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -21,11 +21,18 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CallbackComponent } from './public/callback/callback.component';
 import { TestHeaderComponent } from './components/test-header/test-header.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ProfileComponent } from './private/profile/profile.component';
 
 // https://www.npmjs.com/package/@auth0/angular-jwt
+// Replaced with @auth0/auth0-spa-js code, remove if still working
+/*
 export function newGetToken () {
   return localStorage.getItem('access_token');
 }
+*/
 
 @NgModule({
   declarations: [
@@ -40,6 +47,8 @@ export function newGetToken () {
     FooterComponent,
     CallbackComponent,
     TestHeaderComponent,
+    NavBarComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +58,7 @@ export function newGetToken () {
     FlexLayoutModule,
     HttpClientModule,
     NgbModule,
+    /*
     JwtModule.forRoot({
       config: {
         tokenGetter: newGetToken,
@@ -58,7 +68,9 @@ export function newGetToken () {
         blacklistedRoutes: ['localhost:4200/engine-rest/', 'localhost:8080/engine-rest/']
       }
     }),
-    GtagModule.forRoot({ trackingId: environment.gAnalyticsCode, trackPageviews: true })
+    */
+    GtagModule.forRoot({ trackingId: environment.gAnalyticsCode, trackPageviews: true }),
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent],
