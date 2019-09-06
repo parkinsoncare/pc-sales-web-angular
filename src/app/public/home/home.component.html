@@ -16,34 +16,37 @@
 <div fxLayout="row wrap" fxLayoutAlign="space-around" fxLayout.lt-sm="column">
   <div fxFlex="35%" fxFlex.lt-sm="80%">
     <mat-card class="full-width-remove " [ngClass]="publicGetStatus">
-      <mat-card-title>1 Public Get Call Test</mat-card-title>
+      <mat-card-title>1: Public Get Call Test</mat-card-title>
       <div *ngIf="publicGetRestResult">
-        {{publicGetRestResult|json:'pretty'}}
+        <pre>{{publicGetRestResult|json:'pretty'}}</pre>
       </div>
       <div *ngIf="!publicGetRestResult">No result from public GET call.</div>
     </mat-card>
   </div>
+
   <div fxFlex="35%" fxFlex.lt-sm="80%">
     <mat-card class="full-width-remove " [ngClass]="publicPostStatus">
-      <mat-card-title>2 Public POST Call Test</mat-card-title>
+      <mat-card-title>2: Public POST Call Test</mat-card-title>
       <div *ngIf="publicPostRestResult">
         <pre>{{publicPostRestResult|json:'pretty'}}</pre>
       </div>
       <div *ngIf="!publicPostRestResult">No result from public PUT call.</div>
     </mat-card>
   </div>
+
   <div fxFlex="35%" fxFlex.lt-sm="80%">
     <mat-card class="full-width-remove " [ngClass]="privateGetStatus">
-      <mat-card-title>3 Private Get Call Test</mat-card-title>
+      <mat-card-title>3: Private Get Call Test</mat-card-title>
       <div *ngIf="privateGetRestResult">
         <pre>{{privateGetRestResult|json:'pretty'}}</pre>
       </div>
       <div *ngIf="!privateGetRestResult">No result from private GET call.</div>
     </mat-card>
   </div>
+
   <div fxFlex="35%" fxFlex.lt-sm="80%">
     <mat-card class="full-width-remove " [ngClass]="privatePostStatus">
-      <mat-card-title>4 Private POST Call Test</mat-card-title>
+      <mat-card-title>4: Private POST Call Test</mat-card-title>
       <div *ngIf="privatePostRestResult">
         <pre>{{privatePostRestResult|json:'pretty'}}</pre>
       </div>
@@ -51,49 +54,3 @@
     </mat-card>
   </div>
 </div>
-
-<!--
-<div fxLayout="row" fxLayoutAlign="space-around" fxLayoutGap="10%" fxLayout.lt-sm="column">
-  <div fxFlex="25%" fxFlex.lt-sm="100%">
-    <mat-card class="full-width " [ngClass]="publicGetStatus">
-      <mat-card-title>Public Get Call Test</mat-card-title>
-      <div *ngIf="publicGetRestResult">
-        {{publicGetRestResult|json:'pretty'}}
-      </div>
-      <div *ngIf="!publicGetRestResult">No result from public GET call.</div>
-    </mat-card>
-  </div>
-  <div fxFlex="25%" fxFlex.lt-sm="100%">
-    <mat-card class="full-width " [ngClass]="publicPostStatus">
-      <mat-card-title>Public POST Call Test</mat-card-title>
-      <div *ngIf="publicPostRestResult">
-        <pre>{{publicPostRestResult|json:'pretty'}}</pre>
-      </div>
-      <div *ngIf="!publicPostRestResult">No result from public PUT call.</div>
-    </mat-card>
-  </div>
-</div>
-
-
-
-<div fxLayout="row" fxLayoutAlign="space-around" fxLayoutGap="10%" fxLayout.lt-sm="column">
-  <div fxFlex="25%" fxFlex.lt-sm="100%">
-    <mat-card class="full-width " [ngClass]="privateGetStatus">
-      <mat-card-title>Private Get Call Test</mat-card-title>
-      <div *ngIf="privateGetRestResult">
-        <pre>{{privateGetRestResult|json:'pretty'}}</pre>
-      </div>
-      <div *ngIf="!privateGetRestResult">No result from public GET call.</div>
-    </mat-card>
-  </div>
-  <div fxFlex="25%" fxFlex.lt-sm="100%">
-    <mat-card class="full-width " [ngClass]="privatePostStatus">
-      <mat-card-title>Private POST Call Test</mat-card-title>
-      <div *ngIf="privatePostRestResult">
-        <pre>{{privatePostRestResult|json:'pretty'}}</pre>
-      </div>
-      <div *ngIf="!privatePostRestResult">No result from public PUT call.</div>
-    </mat-card>
-  </div>
-</div>
--->
