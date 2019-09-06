@@ -6,6 +6,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from './../../../environments/environment';
+import { faUser, faPowerOff } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -20,6 +21,11 @@ export class HeaderComponent implements OnInit {
     );
 
   env: any = environment;
+
+  // From Auth0 nav-bar
+  isCollapsed = true;
+  faUser = faUser;
+  faPowerOff = faPowerOff;
 
   constructor( private breakpointObserver: BreakpointObserver,
                public auth: AuthService,

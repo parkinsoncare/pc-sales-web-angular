@@ -20,7 +20,6 @@ import { environment } from '../environments/environment';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CallbackComponent } from './public/callback/callback.component';
-import { TestHeaderComponent } from './components/test-header/test-header.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -46,7 +45,6 @@ export function newGetToken () {
     HeaderComponent,
     FooterComponent,
     CallbackComponent,
-    TestHeaderComponent,
     NavBarComponent,
     ProfileComponent
   ],

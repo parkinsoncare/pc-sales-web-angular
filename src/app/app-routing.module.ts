@@ -9,6 +9,7 @@ import { AuthenticatedGuard } from './guards/authenticated/authenticated.guard';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpInterceptorService } from './services/http-interceptor/http-interceptor.service';
 import { CallbackComponent } from './public/callback/callback.component';
+import {ProfileComponent} from './private/profile/profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/public/home', pathMatch: 'full' },
@@ -24,7 +25,8 @@ const routes: Routes = [
     path: 'private', component: PrivateRootComponent, canActivateChild: [AuthenticatedGuard],
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-      { path: 'dashboard', component: DashboardComponent}
+      { path: 'dashboard', component: DashboardComponent},
+      { path: 'profile', component: ProfileComponent}
     ]
   }
 ];
