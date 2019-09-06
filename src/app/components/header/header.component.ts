@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 import { environment } from './../../../environments/environment';
 
 @Component({
-  selector: 'header',
+  selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
