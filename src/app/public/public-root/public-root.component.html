@@ -4,19 +4,11 @@
                [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
                [mode]="(isHandset$ | async) ? 'over' : 'side'"
                [opened]="false">
-    <mat-nav-list>
-      <a mat-list-item routerLink="/public/contactus">Contact Us</a>
-      <mat-divider></mat-divider>
-      <div *ngIf="auth.loggedIn">
-        <a mat-list-item (click)="auth.logout(); router.navigate(['/public/home']);">Logout</a>
-      </div>
-      <div *ngIf="!auth.loggedIn">
-        <div>
-          <a mat-list-item (click)="auth.login()">Login</a>
-        </div>
-      </div>
-      <mat-divider></mat-divider>
-    </mat-nav-list>
+
+
+    <button id="text-toggle-button" mat-mini-fab (click)="toggleText()"> o </button>
+    <app-sidebar-menu [type]="public"></app-sidebar-menu>
+
   </mat-sidenav>
 
   <mat-sidenav-content class="auth-container">

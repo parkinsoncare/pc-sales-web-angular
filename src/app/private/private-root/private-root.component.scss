@@ -1,0 +1,24 @@
+#text-toggle-button {
+  position: absolute;
+  right: -5px;
+  top: 25px;
+
+  z-index: 1;
+}
+
+.sideNavContainer {
+  position: relative;
+  overflow: visible;
+  background-color: aqua;
+}
+
+
+.sidenav {
+
+  background-color: yellow;
+}
+
+.auth-container {
+  position: relative;
+  overflow: visible;
+}

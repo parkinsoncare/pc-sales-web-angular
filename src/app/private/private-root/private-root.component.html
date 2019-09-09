@@ -1,1 +1,19 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container class="sideNavContainer">
+
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="false"
+               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               [opened]="true">
+
+
+    <!--<button id="text-toggle-button" mat-mini-fab (click)="toggleText()"> o </button>-->
+    <app-sidebar-menu [type]="private"></app-sidebar-menu>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content class="auth-container">
+
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
