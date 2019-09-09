@@ -6,7 +6,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from './../../../environments/environment';
-import { faUser, faPowerOff } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faPowerOff, faLanguage, faGlobe } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -26,6 +26,8 @@ export class HeaderComponent implements OnInit {
   isCollapsed = true;
   faUser = faUser;
   faPowerOff = faPowerOff;
+  faLanguage = faLanguage;
+  faGlobe = faGlobe;
 
   constructor( private breakpointObserver: BreakpointObserver,
                public auth: AuthService,

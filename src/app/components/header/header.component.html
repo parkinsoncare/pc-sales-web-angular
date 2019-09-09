@@ -33,13 +33,23 @@
 
       <button fxFlex fxFlexAlign="end center" *ngIf="auth.loggedIn" (click)="auth.logout();" mat-button color="black" class="float-right loginLogoutText  btnTextColor menuText" >Logout!</button>
       -->
+      <!--
+      <ul fxFlex fxFlexAlign="end center"  class="navbar-nav d-none d-md-block loginLogoutText">
+        <li class="nav-item dropdown" ><fa-icon [icon]="faGlobe" class="mr-3"></fa-icon></li>
+      </ul>
+      -->
 
           <ul fxFlex fxFlexAlign="end center"  class="navbar-nav d-none d-md-block loginLogoutText">
-            <!-- Login button: show if NOT authenticated -->
-            <li class="nav-item" *ngIf="auth.loggedIn === false">
-              <button
+            <!-- Login button: show if NOT authenticated
+            former classes on button
+
                 id="qsLoginBtn"
                 class="btn btn-primary btn-margin"
+             -->
+            <li class="nav-item" *ngIf="auth.loggedIn === false">
+              <button
+                mat-raised-button
+                color="primary"
                 (click)="auth.login()"
               >
                 Log in
@@ -73,7 +83,7 @@
                   class="dropdown-item dropdown-profile"
                   *ngIf="profile"
                 >
-                  <fa-icon [icon]="faUser" class="mr-3"></fa-icon> Profile!
+                  <fa-icon [icon]="faUser" class="mr-3"></fa-icon> Profile
                 </a>
                 <button
                   (click)="auth.logout()"
