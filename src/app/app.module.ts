@@ -24,6 +24,9 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProfileComponent } from './private/profile/profile.component';
+import { SidebarMenuComponent } from './components/sidebar-menu/sidebar-menu.component';
+import { RemoveMeComponent } from './private/remove-me/remove-me.component';
+import { Auth0UsersComponent } from './admin/auth0-users/auth0-users.component';
 
 // https://www.npmjs.com/package/@auth0/angular-jwt
 // Replaced with @auth0/auth0-spa-js code, remove if still working
@@ -46,7 +49,10 @@ export function newGetToken () {
     FooterComponent,
     CallbackComponent,
     NavBarComponent,
-    ProfileComponent
+    ProfileComponent,
+    SidebarMenuComponent,
+    RemoveMeComponent,
+    Auth0UsersComponent
   ],
   imports: [
     BrowserModule,
