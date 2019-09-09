@@ -8,6 +8,7 @@ import { AuthService } from '../../services/auth/auth.service';
 })
 export class ProfileComponent implements OnInit {
   profileJson: string = null;
+  tok: Promise <string>;
 
   constructor(public auth: AuthService) { }
 
@@ -15,6 +16,8 @@ export class ProfileComponent implements OnInit {
     this.auth.userProfile$.subscribe(
       profile => this.profileJson = JSON.stringify(profile, null, 2)
     );
+
+    this.tok = this.auth.getToken();
   }
 
 }

@@ -1,4 +1,7 @@
-<div class="container mt-5" *ngIf="auth.userProfile$ | async as profile">
+
+
+<mat-card *ngIf="auth.userProfile$ | async as profile">
+
   <div class="row align-items-center profile-header mb-5 text-center text-md-left" >
     <div class="col-md-2">
       <img [src]="profile.picture" class="rounded-circle img-fluid profile-picture mb-3 mb-md-0" />
@@ -13,11 +16,5 @@
     <pre class="rounded"><code class="json">{{profileJson}}</code></pre>
   </div>
 
-  <div class="row" *ngIf="profileJson">
-    <pre class="rounded"><code class="json">{{profileJson}}</code></pre>
-  </div>
+</mat-card>
 
-  <div class="row" *ngIf="profileJson">
-    <pre class="rounded"><code class="json">{{profileJson}}</code></pre>
-  </div>
-</div>
