@@ -34,4 +34,8 @@ export class RestService {
   adminGetUser(params:any): Observable <any> {
     return this.http.post(environment.restServiceURL + '/admin/getUser', params);
   }
+
+  adminUpdateUser(params:any): Observable <any> {
+    return this.http.post(environment.restServiceURL + '/admin/updateUser', params);
+  }
 }

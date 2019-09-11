@@ -32,49 +32,46 @@
     </mat-card>
   </div>
 
-  <div *ngIf="selectedUser">
-    {{selectedUser.name}}
+  <mat-card *ngIf="selectedUser">
+    <mat-card-title>Selected User: {{selectedUser.email}}</mat-card-title>
 
-    <input [(ngModel)]="selectedUser.name" />
-    <pre>{{selectedUser|json:'pretty'}}</pre>
-  </div>
-
-  <!--
-  <div *ngIf="selectedUser">
-    <div>Selected User: {{selectedUser.email}}</div>
     <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around">
       <div fxFlex="45%">
         <div fxLayout="column">
 
           <div fxFlex="95%">
 
-              <input matInput type="text" required [(ngModel)]="removethis"/>
-            <!- -
             <mat-form-field appearance="fill" floatLabel="always">
               <mat-label>Name</mat-label>
-              <input matInput placeholder="Name" [(ngModel)]="removethis" >
+              <input matInput placeholder="Name" [(ngModel)]="selectedUser.name" >
             </mat-form-field>
-            - ->
+
           </div>
 
           <div fxFlex="95%">
-            <!- -
+
             <mat-form-field appearance="fill" floatLabel="always">
               <mat-label>Email</mat-label>
               <input matInput placeholder="Email" [(ngModel)]="selectedUser.email">
             </mat-form-field>
-            - ->
+
           </div>
 
         </div>
 
       </div>
       <div fxFlex="45%">
-          <mat-slide-toggle>Slide me!</mat-slide-toggle>
+          <mat-slide-toggle [(ngModel)]="selectedUser.blocked">Administrative Block</mat-slide-toggle>
       </div>
     </div>
 
 
-  </div>
-  -->
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="updateSelectedUser()">Save</button>
+    </mat-card-actions>
+  </mat-card>
+</mat-card>
+
+<mat-card *ngIf="selectedUser">
+  <pre>{{selectedUser|json:"pretty"}}</pre>
 </mat-card>

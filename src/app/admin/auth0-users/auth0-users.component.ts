@@ -11,8 +11,6 @@ import { PageEvent } from '@angular/material/paginator';
 })
 export class Auth0UsersComponent implements OnInit {
 
-  removethis: string;
-
   users: any[];
   selectedUser: any;
 
@@ -40,7 +38,7 @@ export class Auth0UsersComponent implements OnInit {
         this.itemsFound = response.total;
 
       }, e => {
-        this.snackMessage.open('Error searching for users', null,{verticalPosition: 'top', duration:  environment.snackBarDuration});
+        this.snackMessage.open('Error searching for users', 'null',{verticalPosition: 'top'});
       });
   }
 
@@ -61,13 +59,22 @@ export class Auth0UsersComponent implements OnInit {
         const response = JSON.parse(r);
         this.selectedUser = response;
       }, e => {
-        this.snackMessage.open('Error getting user', null,{verticalPosition: 'top', duration:  environment.snackBarDuration});
+        this.snackMessage.open('Error getting user', 'x',{verticalPosition: 'top'});
       });
   }
 
   isSelectedItem(listUser) {
     if (!this.selectedUser || this.selectedUser.user_id !== listUser.user_id) { return false; }
     else { return true; }
+  }
+
+  updateSelectedUser() {
+    this.rest.adminUpdateUser(this.selectedUser)
+      .subscribe( r => {
+        this.snackMessage.open('User updated', null,{verticalPosition: 'bottom', duration:  environment.snackBarDuration});
+      }, e => {
+        this.snackMessage.open('Error updating user', 'x',{verticalPosition: 'top'});
+      });
   }
 
 }
