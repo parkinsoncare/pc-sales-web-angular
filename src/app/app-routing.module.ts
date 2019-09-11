@@ -9,8 +9,10 @@ import { AuthenticatedGuard } from './guards/authenticated/authenticated.guard';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpInterceptorService } from './services/http-interceptor/http-interceptor.service';
 import { CallbackComponent } from './public/callback/callback.component';
-import {ProfileComponent} from './private/profile/profile.component';
-import {RemoveMeComponent} from './private/remove-me/remove-me.component';
+import { ProfileComponent } from './private/profile/profile.component';
+import { RemoveMeComponent } from './private/remove-me/remove-me.component';
+import { AdminRootComponent } from './admin/admin-root/admin-root.component';
+import {Auth0UsersComponent} from './admin/auth0-users/auth0-users.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/public/home', pathMatch: 'full' },
@@ -29,6 +31,13 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent},
       { path: 'profile', component: ProfileComponent},
       { path: 'removeme', component: RemoveMeComponent }
+    ]
+  },
+  {
+    path: 'admin', component: AdminRootComponent, canActivateChild: [AuthenticatedGuard],
+    children: [
+      { path: '', redirectTo: 'users', pathMatch: 'full'},
+      { path: 'users', component: Auth0UsersComponent}
     ]
   }
 ];

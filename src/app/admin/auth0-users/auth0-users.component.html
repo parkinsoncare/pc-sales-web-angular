@@ -1,0 +1,80 @@
+<mat-card>
+  <mat-card-title>Users</mat-card-title>
+
+  <mat-card class="list-mat-card list-header-mat-card">
+    <div fxLayout="row" fxLayoutAlign="space-between">
+      <div fxFlex="20%">Email</div>
+      <div fxFlex="20%">Last Login</div>
+      <div fxFlex="20%">Email is Verified</div>
+      <div fxFlex="20%">Number of Logins</div>
+    </div>
+  </mat-card>
+
+  <mat-card class="list-mat-card" *ngFor="let user of users" (click)="selectUser(user)" [class.selected]="isSelectedItem(user)">
+    <div fxLayout="row" fxLayoutAlign="space-between">
+      <div fxFlex="20%">{{user.email}}</div>
+      <div fxFlex="20%">{{user.last_login|date:'medium'}}</div>
+      <div fxFlex="20%" fxFlexAlign="center">
+        <div *ngIf="user.email_verified"><mat-icon>check_circle_outline</mat-icon></div>
+        <div *ngIf="!user.email_verified"><mat-icon>highlight_off</mat-icon></div>
+      </div>
+      <div fxFlex="20%">{{user.logins_count}}</div>
+    </div>
+  </mat-card>
+
+  <div *ngIf="users && users.length>0">
+    <mat-card class="list-paginator">
+      <mat-paginator [length]="itemsFound"
+                     [pageSize]="pageSize"
+                     [pageSizeOptions]="pageSizeOptions"
+                     (page)="pageChange($event)" >
+      </mat-paginator>
+    </mat-card>
+  </div>
+
+  <div *ngIf="selectedUser">
+    {{selectedUser.name}}
+
+    <input [(ngModel)]="selectedUser.name" />
+    <pre>{{selectedUser|json:'pretty'}}</pre>
+  </div>
+
+  <!--
+  <div *ngIf="selectedUser">
+    <div>Selected User: {{selectedUser.email}}</div>
+    <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around">
+      <div fxFlex="45%">
+        <div fxLayout="column">
+
+          <div fxFlex="95%">
+
+              <input matInput type="text" required [(ngModel)]="removethis"/>
+            <!- -
+            <mat-form-field appearance="fill" floatLabel="always">
+              <mat-label>Name</mat-label>
+              <input matInput placeholder="Name" [(ngModel)]="removethis" >
+            </mat-form-field>
+            - ->
+          </div>
+
+          <div fxFlex="95%">
+            <!- -
+            <mat-form-field appearance="fill" floatLabel="always">
+              <mat-label>Email</mat-label>
+              <input matInput placeholder="Email" [(ngModel)]="selectedUser.email">
+            </mat-form-field>
+            - ->
+          </div>
+
+        </div>
+
+      </div>
+      <div fxFlex="45%">
+          <mat-slide-toggle>Slide me!</mat-slide-toggle>
+      </div>
+    </div>
+
+
+  </div>
+  -->
+</mat-card>
