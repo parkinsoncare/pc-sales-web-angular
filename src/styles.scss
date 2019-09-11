@@ -24,3 +24,22 @@ mat-sidenav-container {
 mat-card {
   margin: 10px;
 }
+
+.list-mat-card {
+  margin: 0px;
+  padding: 2px !important;
+}
+
+
+.list-mat-card.selected {
+  background-color: lightblue;
+}
+
+.list-header-mat-card {
+  background-color: lightgrey;
+}
+
+.list-paginator {
+  margin: 0px;
+  padding: 5px !important;
+}
