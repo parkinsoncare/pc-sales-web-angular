@@ -2,6 +2,7 @@
   <a mat-list-item routerLink="/private/dashboard"><mat-icon>dashboard</mat-icon><span class="sidenav-text" *ngIf="showText"> Dashboard</span></a>
   <a mat-list-item routerLink="/private/profile"><mat-icon>person</mat-icon><span class="sidenav-text" *ngIf="showText"> Profile</span></a>
   <a mat-list-item routerLink="/private/removeme"><mat-icon>person</mat-icon><span class="sidenav-text" *ngIf="showText"> Remove Me</span></a>
+  <a mat-list-item routerLink="/admin/users"><mat-icon>person</mat-icon><span class="sidenav-text" *ngIf="showText"> Users</span></a>
   <mat-divider></mat-divider>
   <div *ngIf="auth.loggedIn">
     <a mat-list-item (click)="auth.logout(); router.navigate(['/public/home']);"><mat-icon>power_settings_new</mat-icon><span class="sidenav-text" *ngIf="showText"> Logout</span></a>

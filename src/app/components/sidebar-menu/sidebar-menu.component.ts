@@ -11,7 +11,7 @@ export class SidebarMenuComponent implements OnInit {
 
   showText: boolean = true;
 
-  constructor(private auth: AuthService) { }
+  constructor(public auth: AuthService) { }
 
   ngOnInit() {
   }
