@@ -26,4 +26,12 @@ export class RestService {
   privatePut(params:any): Observable <any> {
     return this.http.post(environment.restServiceURL + '/private/', params);
   }
+
+  adminGetUsers(params:any): Observable <any> {
+    return this.http.post(environment.restServiceURL + '/admin/getUsers', params);
+  }
+
+  adminGetUser(params:any): Observable <any> {
+    return this.http.post(environment.restServiceURL + '/admin/getUser', params);
+  }
 }
