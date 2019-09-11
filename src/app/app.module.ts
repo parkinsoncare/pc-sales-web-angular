@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { GtagModule } from 'angular-gtag';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,14 +29,6 @@ import { SidebarMenuComponent } from './components/sidebar-menu/sidebar-menu.com
 import { RemoveMeComponent } from './private/remove-me/remove-me.component';
 import { Auth0UsersComponent } from './admin/auth0-users/auth0-users.component';
 import { AdminRootComponent } from './admin/admin-root/admin-root.component';
-
-// https://www.npmjs.com/package/@auth0/angular-jwt
-// Replaced with @auth0/auth0-spa-js code, remove if still working
-/*
-export function newGetToken () {
-  return localStorage.getItem('access_token');
-}
-*/
 
 @NgModule({
   declarations: [
@@ -64,19 +57,9 @@ export function newGetToken () {
     FlexLayoutModule,
     HttpClientModule,
     NgbModule,
-    /*
-    JwtModule.forRoot({
-      config: {
-        tokenGetter: newGetToken,
-        // https://www.npmjs.com/package/@auth0/angular-jwt
-        // jwt are only sent to these domains.
-        whitelistedDomains: [ environment.restServiceWhitelistDomain ],
-        blacklistedRoutes: ['localhost:4200/engine-rest/', 'localhost:8080/engine-rest/']
-      }
-    }),
-    */
     GtagModule.forRoot({ trackingId: environment.gAnalyticsCode, trackPageviews: true }),
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
