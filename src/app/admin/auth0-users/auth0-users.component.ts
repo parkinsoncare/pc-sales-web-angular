@@ -14,6 +14,9 @@ export class Auth0UsersComponent implements OnInit {
   users: any[];
   selectedUser: any;
 
+  usersLoading: boolean = false;
+  selectedUserLoading: boolean = false;
+
   itemsFound: number = 0;
   pageSize: number = 5;
   pageIndex: number = 0;
@@ -28,6 +31,7 @@ export class Auth0UsersComponent implements OnInit {
 
   loadData() {
 
+    this.usersLoading = true;
     const params = { pageIndex: this.pageIndex, pageSize: this.pageSize, searchTerms: { email: null }};
 
     this.rest.adminGetUsers(params)
@@ -39,6 +43,8 @@ export class Auth0UsersComponent implements OnInit {
 
       }, e => {
         this.snackMessage.open('Error searching for users', 'null',{verticalPosition: 'top'});
+      }, () => {
+        this.usersLoading = false
       });
   }
 
@@ -50,16 +56,18 @@ export class Auth0UsersComponent implements OnInit {
 
   selectUser(clickedUser) {
     this.selectedUser = null;
+    this.selectedUserLoading = true;
 
     const params = { user_id: clickedUser.user_id};
 
     this.rest.adminGetUser(params)
       .subscribe ( r => {
-        console.log(r);
         const response = JSON.parse(r);
         this.selectedUser = response;
       }, e => {
         this.snackMessage.open('Error getting user', 'x',{verticalPosition: 'top'});
+      }, () => {
+        this.selectedUserLoading = false;
       });
   }
 
