@@ -29,6 +29,7 @@ import { SidebarMenuComponent } from './components/sidebar-menu/sidebar-menu.com
 import { RemoveMeComponent } from './private/remove-me/remove-me.component';
 import { Auth0UsersComponent } from './admin/auth0-users/auth0-users.component';
 import { AdminRootComponent } from './admin/admin-root/admin-root.component';
+import { LoginErrorComponent } from './public/login-error/login-error.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { AdminRootComponent } from './admin/admin-root/admin-root.component';
     SidebarMenuComponent,
     RemoveMeComponent,
     Auth0UsersComponent,
-    AdminRootComponent
+    AdminRootComponent,
+    LoginErrorComponent
   ],
   imports: [
     BrowserModule,

@@ -12,7 +12,8 @@ import { CallbackComponent } from './public/callback/callback.component';
 import { ProfileComponent } from './private/profile/profile.component';
 import { RemoveMeComponent } from './private/remove-me/remove-me.component';
 import { AdminRootComponent } from './admin/admin-root/admin-root.component';
-import {Auth0UsersComponent} from './admin/auth0-users/auth0-users.component';
+import { Auth0UsersComponent } from './admin/auth0-users/auth0-users.component';
+import { LoginErrorComponent } from './public/login-error/login-error.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/public/home', pathMatch: 'full' },
@@ -21,7 +22,8 @@ const routes: Routes = [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
       { path: 'contactus', component: ContactUsComponent },
-      { path: 'callback', component: CallbackComponent }
+      { path: 'callback', component: CallbackComponent },
+      { path: 'loginerror/:errorType', component: LoginErrorComponent }
     ]
   },
   {
