@@ -3,6 +3,7 @@ import { RestService } from '../../services/rest/rest.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from './../../../environments/environment';
 import { PageEvent } from '@angular/material/paginator';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-auth0-users',
@@ -35,16 +36,16 @@ export class Auth0UsersComponent implements OnInit {
     const params = { pageIndex: this.pageIndex, pageSize: this.pageSize, searchTerms: { email: null }};
 
     this.rest.adminGetUsers(params)
+      .pipe(
+        finalize(() => { this.usersLoading = false; })
+      )
       .subscribe ( r => {
-        console.log(r);
         const response = JSON.parse(r);
         this.users = response.users;
         this.itemsFound = response.total;
 
       }, e => {
         this.snackMessage.open('Error searching for users', 'null',{verticalPosition: 'top'});
-      }, () => {
-        this.usersLoading = false
       });
   }
 
@@ -61,13 +62,13 @@ export class Auth0UsersComponent implements OnInit {
     const params = { user_id: clickedUser.user_id};
 
     this.rest.adminGetUser(params)
+      .pipe(
+        finalize(() => { this.selectedUserLoading = false; })
+      )
       .subscribe ( r => {
-        const response = JSON.parse(r);
-        this.selectedUser = response;
+        this.selectedUser = JSON.parse(r);
       }, e => {
         this.snackMessage.open('Error getting user', 'x',{verticalPosition: 'top'});
-      }, () => {
-        this.selectedUserLoading = false;
       });
   }
 
