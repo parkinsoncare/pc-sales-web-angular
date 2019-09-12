@@ -20,8 +20,8 @@
         <div *ngIf="!user.email_verified"><mat-icon>highlight_off</mat-icon></div>
       </div>
       <div fxFlex="10%">
-        <div *ngIf="user.blocked"><mat-icon>check_circle_outline</mat-icon></div>
-        <div *ngIf="!user.blocked"><mat-icon>highlight_off</mat-icon></div>
+        <div *ngIf="user.blocked"><mat-icon>highlight_off</mat-icon></div>
+        <div *ngIf="!user.blocked"></div>
       </div>
       <div fxFlex="20%">{{user.logins_count}}</div>
     </div>
@@ -66,11 +66,54 @@
 
           </div>
 
+          <div fxFlex="95%">
+
+            <mat-form-field appearance="fill" floatLabel="always">
+              <mat-label>Given Name</mat-label>
+              <input matInput placeholder="Email" [(ngModel)]="selectedUser.given_name">
+            </mat-form-field>
+
+          </div>
+
+          <div fxFlex="95%">
+
+            <mat-form-field appearance="fill" floatLabel="always">
+              <mat-label>Family Name</mat-label>
+              <input matInput placeholder="Email" [(ngModel)]="selectedUser.family_name">
+            </mat-form-field>
+
+          </div>
+
+          <div fxFlex="95%">
+
+            <mat-form-field appearance="fill" floatLabel="always">
+              <mat-label>Nickname</mat-label>
+              <input matInput placeholder="Email" [(ngModel)]="selectedUser.nickname">
+            </mat-form-field>
+
+          </div>
+
         </div>
 
       </div>
       <div fxFlex="45%">
-          <mat-slide-toggle [(ngModel)]="selectedUser.blocked">Administrative Block</mat-slide-toggle>
+        <div fxLayout="column">
+          <div fxFlex="95%">
+            <mat-slide-toggle [(ngModel)]="selectedUser.blocked">Administrative Block</mat-slide-toggle>
+          </div>
+          <div fxFlex="95%">
+            <mat-slide-toggle [(ngModel)]="selectedUser.email_verified">Email Verified</mat-slide-toggle>
+          </div>
+          <div fxFlex="95%">
+            Created: {{selectedUser.created_at|date:"medium"}}
+          </div>
+          <div fxFlex="95%">
+            Updated: {{selectedUser.updated_at|date:"medium"}}
+          </div>
+          <div fxFlex="95%">
+            Last Login: {{selectedUser.last_login|date:"medium"}}
+          </div>
+        </div>
       </div>
     </div>
 

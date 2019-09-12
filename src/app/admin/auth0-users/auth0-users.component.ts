@@ -31,7 +31,6 @@ export class Auth0UsersComponent implements OnInit {
   }
 
   loadData() {
-
     this.usersLoading = true;
     const params = { pageIndex: this.pageIndex, pageSize: this.pageSize, searchTerms: { email: null }};
 
