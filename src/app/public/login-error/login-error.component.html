@@ -1,0 +1,11 @@
+<div fxLayout="row" fxLayoutAlign="space-around">
+  <mat-card fxFlex="75%" fxFlex.lt-sm="100%">
+    <mat-card-title>Login Error</mat-card-title>
+
+    <div *ngIf="errorType === 'unknown'">
+      Unknown error
+    </div>
+    <div *ngIf="errorType === 'admin_block'">
+      Admin block
+    </div>
+  </mat-card>

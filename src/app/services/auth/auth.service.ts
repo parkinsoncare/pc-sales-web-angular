@@ -91,6 +91,8 @@ export class AuthService {
         redirect_uri: environment.auth0.callbackUri,
         appState: { target: redirectPath }
       });
+    }, e => {
+      console.log('Login Error:', e);
     });
   }
 
@@ -116,6 +118,12 @@ export class AuthService {
     authComplete$.subscribe(([user, loggedIn]) => {
       // Redirect to target route after callback processing
       this.router.navigate([targetRoute]);
+    }, e => {
+      console.log('Login Error2:', e);
+      let errorReasonCode = 'unknown';
+      if (e.error_description === 'user is blocked') { errorReasonCode = 'admin_block'; }
+
+      this.router.navigate(['/public/loginerror', errorReasonCode]);
     });
   }
 
