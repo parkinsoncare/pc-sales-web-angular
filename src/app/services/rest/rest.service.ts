@@ -38,4 +38,8 @@ export class RestService {
   adminUpdateUser(params:any): Observable <any> {
     return this.http.post(environment.restServiceURL + '/admin/updateUser', params);
   }
+
+  adminGetRoles(params:any): Observable <any> {
+    return this.http.post(environment.restServiceURL + '/admin/getRoles', params);
+  }
 }
