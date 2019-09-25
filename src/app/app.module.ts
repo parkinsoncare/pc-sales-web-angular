@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 // import { JwtModule } from '@auth0/angular-jwt';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { GtagModule } from 'angular-gtag';
@@ -21,15 +21,28 @@ import { environment } from '../environments/environment';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CallbackComponent } from './public/callback/callback.component';
-import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProfileComponent } from './private/profile/profile.component';
 import { SidebarMenuComponent } from './components/sidebar-menu/sidebar-menu.component';
-import { RemoveMeComponent } from './private/remove-me/remove-me.component';
 import { Auth0UsersComponent } from './admin/auth0-users/auth0-users.component';
 import { AdminRootComponent } from './admin/admin-root/admin-root.component';
 import { LoginErrorComponent } from './public/login-error/login-error.component';
+import { Auth0RolesComponent } from './admin/auth0-roles/auth0-roles.component';
+
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { SignupComponent } from './private/subscribe/signup/signup.component';
+import { StripeThanksComponent } from './private/subscribe/stripe-thanks/stripe-thanks.component';
+import { StripeCancelComponent } from './private/subscribe/stripe-cancel/stripe-cancel.component';
+import { AccountComponent } from './private/account/account.component';
+import { SidebarDividerComponent } from './components/sidebar-divider/sidebar-divider.component';
+
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -43,13 +56,17 @@ import { LoginErrorComponent } from './public/login-error/login-error.component'
     HeaderComponent,
     FooterComponent,
     CallbackComponent,
-    NavBarComponent,
     ProfileComponent,
     SidebarMenuComponent,
-    RemoveMeComponent,
     Auth0UsersComponent,
     AdminRootComponent,
-    LoginErrorComponent
+    LoginErrorComponent,
+    Auth0RolesComponent,
+    SignupComponent,
+    StripeThanksComponent,
+    StripeCancelComponent,
+    AccountComponent,
+    SidebarDividerComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +78,14 @@ import { LoginErrorComponent } from './public/login-error/login-error.component'
     NgbModule,
     GtagModule.forRoot({ trackingId: environment.gAnalyticsCode, trackPageviews: true }),
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent],
