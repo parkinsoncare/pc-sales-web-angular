@@ -27,6 +27,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatStepperModule } from '@angular/material/stepper';
 
 @NgModule({
   imports: [
@@ -51,7 +52,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatListModule,
     MatDialogModule,
     MatSnackBarModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatStepperModule
   ],
   exports: [
     MatButtonModule,
@@ -78,7 +80,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatListModule,
     MatDialogModule,
     MatSnackBarModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatStepperModule
   ],
 })
 export class MaterialIoModule { }
