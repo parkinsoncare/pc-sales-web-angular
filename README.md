@@ -25,3 +25,35 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+## Stripe
+
+Steps based on: https://alligator.io/angular/stripe-elements/
+
+Include in index.html: 
+
+  <!-- Stripe -->
+  <script src="https://js.stripe.com/v3/"></script>
+  
+Create src/typings.d.ts file with:
+
+declare var stripe: any;
+
+## Translations: @ngx-translate/core
+
+https://github.com/ngx-translate/core
+
+npm install @ngx-translate/core --save
+npm install @ngx-translate/http-loader
+
+
+## Source Guides
+
+Auth0:
+https://github.com/auth0-samples/auth0-angular-samples
+
+## SETUP Framework
+
+I think this was the article:
+https://www.viget.com/articles/keeping-the-framework-for-your-application-up-to-date-with-git/
