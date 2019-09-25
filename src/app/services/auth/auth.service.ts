@@ -152,6 +152,8 @@ export class AuthService {
   public inRole(targetGroupList: string[]): Observable<boolean> {
     return this.userProfile$.pipe (
       map ( (user) => {
+        if (!user) { return false; }
+
         const roles = user['http://opinionatedstack.com/roles'];
 
         for (let i = 0; i < targetGroupList.length; i++) {
