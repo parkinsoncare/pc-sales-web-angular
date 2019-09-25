@@ -15,7 +15,7 @@ describe('AppComponent', () => {
         RouterTestingModule,
         FlexLayoutModule,
         MatDialogModule,
-        GtagModule.forRoot({ trackingId: 'UA-YOUR_TRACKING_ID', trackPageviews: true })
+        //GtagModule.forRoot({ trackingId: 'UA-YOUR_TRACKING_ID', trackPageviews: true })
       ],
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
       providers: [ Gtag ],
