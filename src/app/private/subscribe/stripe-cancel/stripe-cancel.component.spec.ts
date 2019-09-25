@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RemoveMeComponent } from './remove-me.component';
+import { StripeCancelComponent } from './stripe-cancel.component';
 
-describe('RemoveMeComponent', () => {
-  let component: RemoveMeComponent;
-  let fixture: ComponentFixture<RemoveMeComponent>;
+describe('StripeCancelComponent', () => {
+  let component: StripeCancelComponent;
+  let fixture: ComponentFixture<StripeCancelComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RemoveMeComponent ]
+      declarations: [ StripeCancelComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RemoveMeComponent);
+    fixture = TestBed.createComponent(StripeCancelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
