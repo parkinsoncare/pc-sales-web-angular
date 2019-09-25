@@ -2,13 +2,26 @@
   <div fxFlex="50%" fxFlex.lt-sm="80%">
     <mat-card class="full-width-remove api-cards-remove">
       <mat-card-title i18n="public home title|An introduction title for the public home@@public home title">Public Home Page</mat-card-title>
-      Need some text here
+      <mat-card-subtitle>An opinionated stack for web and mobile apps</mat-card-subtitle>
+
+      <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-between">
+        <div fxFlex="22%" fxFlexAlign="center"><img class="comp-logo" src="/assets/public/opstack/mongodb/mongodb.png"/></div>
+        <div fxFlex="22%" fxFlexAlign="center"><img class="comp-logo" src="/assets/public/opstack/express/express-facebook-share.png"/></div>
+        <div fxFlex="22%" fxFlexAlign="center"><img class="comp-logo" src="/assets/public/opstack/angular/angular.png"/></div>
+        <div fxFlex="22%" fxFlexAlign="center"><img class="comp-logo" src="/assets/public/opstack/nodejs/nodejs-new-pantone-black.png"/></div>
+      </div>
+
+      <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-between">
+        <div fxFlex="25%" fxFlexAlign="center"><img class="comp-logo" src="/assets/public/opstack/auth0/Auth0-Logo-Light-BG.png"/></div>
+        <div fxFlex="25%" fxFlexAlign="center"><img class="comp-logo" src="/assets/public/opstack/stripe/Stripe-logo-slate-lg.png"/></div>
+        <div fxFlex="25%" fxFlexAlign="center"><img class="comp-logo" src="/assets/public/opstack/npm/npm-logo-red.png"/></div>
+      </div>
     </mat-card>
   </div>
 </div>
 
 <div fxLayout="row" fxLayoutAlign="center">
-  <button id="rest-test-button" fxFlex="20%" mat-raised-button color="primary" (click)="loadData()">Reload All Rest Calls</button>
+  <button id="dashboard-button" fxFlex="0 0 auto" mat-raised-button color="primary" (click)="loadData()">Reload All Rest Calls</button>
 </div>
 
 <div fxLayout="row wrap" fxLayoutAlign="space-around" fxLayout.lt-sm="column">

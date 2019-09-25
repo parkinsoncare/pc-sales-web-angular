@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from '../../services/rest/rest.service';
+import {GTagManagerService} from '../../services/g-tag-manager/g-tag-manager.service';
 
 
 enum RestStatus {
@@ -26,7 +27,8 @@ export class HomeComponent implements OnInit {
   privateGetStatus: string = '';
   privatePostStatus: string = '';
 
-  constructor(private restService: RestService) { }
+  constructor(private restService: RestService,
+              private gtm: GTagManagerService) { }
 
   ngOnInit() {
 
