@@ -10,10 +10,14 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpInterceptorService } from './services/http-interceptor/http-interceptor.service';
 import { CallbackComponent } from './public/callback/callback.component';
 import { ProfileComponent } from './private/profile/profile.component';
-import { RemoveMeComponent } from './private/remove-me/remove-me.component';
 import { AdminRootComponent } from './admin/admin-root/admin-root.component';
 import { Auth0UsersComponent } from './admin/auth0-users/auth0-users.component';
 import { LoginErrorComponent } from './public/login-error/login-error.component';
+import { SignupComponent } from './private/subscribe/signup/signup.component';
+import { StripeThanksComponent } from './private/subscribe/stripe-thanks/stripe-thanks.component';
+import { StripeCancelComponent } from './private/subscribe/stripe-cancel/stripe-cancel.component';
+import { AccountComponent } from './private/account/account.component';
+import { Auth0RolesComponent } from './admin/auth0-roles/auth0-roles.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/public/home', pathMatch: 'full' },
@@ -30,16 +34,20 @@ const routes: Routes = [
     path: 'private', component: PrivateRootComponent, canActivateChild: [AuthenticatedGuard],
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-      { path: 'dashboard', component: DashboardComponent},
       { path: 'profile', component: ProfileComponent},
-      { path: 'removeme', component: RemoveMeComponent }
+      { path: 'account', component: AccountComponent },
+      { path: 'dashboard', component: DashboardComponent},
+      { path: 'signup', component: SignupComponent},
+      { path: 'signupthanks', component: StripeThanksComponent},
+      { path: 'signupcancel', component: StripeCancelComponent}
     ]
   },
   {
     path: 'admin', component: AdminRootComponent, canActivateChild: [AuthenticatedGuard],
     children: [
       { path: '', redirectTo: 'users', pathMatch: 'full'},
-      { path: 'users', component: Auth0UsersComponent}
+      { path: 'users', component: Auth0UsersComponent },
+      { path: 'roles', component: Auth0RolesComponent }
     ]
   }
 ];
