@@ -31,6 +31,8 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.22",
     "@fortawesome/free-solid-svg-icons": "^5.10.2",
     "@ng-bootstrap/ng-bootstrap": "^5.1.0",
+    "@ngx-translate/core": "^11.0.1",
+    "@ngx-translate/http-loader": "^4.0.0",
     "angular-gtag": "^1.0.3",
     "auth0-js": "^9.10.2",
     "bootstrap": "^4.3.1",
