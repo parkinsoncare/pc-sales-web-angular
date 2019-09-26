@@ -22,7 +22,7 @@
         <span fxFlex="0 0 auto" id="site-title" routerLink="/public">{{env.companyName}}</span>
         <!--</span>-->
 
-        <span fxFlex="0 0 auto" id="dev-warning" *ngIf="!env.production">Dev environment</span>
+        <span fxFlex="0 0 auto" id="dev-warning" *ngIf="!env.production">Env: {{env.env}}</span>
 
       </div>
     </div>
