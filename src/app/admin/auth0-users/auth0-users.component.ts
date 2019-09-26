@@ -44,7 +44,7 @@ export class Auth0UsersComponent implements OnInit {
         this.itemsFound = response.total;
 
       }, e => {
-        this.snackMessage.open('Error searching for users', 'null',{verticalPosition: 'top'});
+        this.snackMessage.open('Error searching for users', 'x',{verticalPosition: 'top'});
       });
   }
 
