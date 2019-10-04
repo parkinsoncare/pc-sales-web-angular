@@ -33,9 +33,8 @@ export class StripeThanksComponent implements OnInit {
       .subscribe(r => {
         this.session = r;
         console.log(this.session);
-        [this.paymentReferenceId, this.env] = this.session._source.session.client_reference_id.split('|');
       }, e => {
-        this.snackMessage.open('Error getting PatientId', null,{duration:  environment.snackBarDuration, verticalPosition: 'top'});
+        this.snackMessage.open('Error getting purchase session', null,{duration:  environment.snackBarDuration, verticalPosition: 'top'});
       });
   }
 
