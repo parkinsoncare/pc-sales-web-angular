@@ -5,7 +5,6 @@ import { map } from 'rxjs/operators';
 import { ActivatedRoute, Router, UrlSegment, NavigationEnd } from '@angular/router';
 import { AuthService } from './services/auth/auth.service';
 import { MenuToggleBroadcastService } from './services/menu-toggle-broadcast/menu-toggle-broadcast.service';
-import { Gtag } from 'angular-gtag';
 import { environment } from './../environments/environment';
 import { GTagManagerService } from './services/g-tag-manager/g-tag-manager.service';
 
