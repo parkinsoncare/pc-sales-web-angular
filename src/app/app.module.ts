@@ -4,7 +4,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 // import { JwtModule } from '@auth0/angular-jwt';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { GtagModule } from 'angular-gtag';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 
@@ -37,6 +36,9 @@ import { StripeThanksComponent } from './private/subscribe/stripe-thanks/stripe-
 import { StripeCancelComponent } from './private/subscribe/stripe-cancel/stripe-cancel.component';
 import { AccountComponent } from './private/account/account.component';
 import { SidebarDividerComponent } from './components/sidebar-divider/sidebar-divider.component';
+import { PaymentHistoryComponent } from './components/payments/payment-history/payment-history.component';
+import { SubscriptionHistoryComponent } from './components/payments/subscription-history/subscription-history.component';
+import { StripeSessionComponent } from './components/payments/stripe-session/stripe-session.component';
 
 
 // AoT requires an exported function for factories
@@ -67,6 +69,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     StripeCancelComponent,
     AccountComponent,
     SidebarDividerComponent,
+    PaymentHistoryComponent,
+    SubscriptionHistoryComponent,
+    StripeSessionComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,7 +81,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     FlexLayoutModule,
     HttpClientModule,
     NgbModule,
-    GtagModule.forRoot({ trackingId: environment.gAnalyticsCode, trackPageviews: true }),
     FontAwesomeModule,
     FormsModule,
     TranslateModule.forRoot({
