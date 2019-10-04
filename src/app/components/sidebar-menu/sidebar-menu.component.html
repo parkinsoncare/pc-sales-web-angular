@@ -2,7 +2,7 @@
   <a mat-list-item (click)="toggleText()"><mat-icon>settings_ethernet</mat-icon><span class="sidenav-text" *ngIf="showText"> Collapse</span></a>
   <a mat-list-item routerLink="/private/dashboard"><mat-icon>dashboard</mat-icon><span class="sidenav-text" *ngIf="showText"> Dashboard</span></a>
   <a mat-list-item routerLink="/private/profile" *ngIf="auth.inRole(['User']) | async"><mat-icon>person</mat-icon><span class="sidenav-text" *ngIf="showText"> Profile</span></a>
-  <a mat-list-item routerLink="/private/account" *ngIf="auth.inRole(['User']) | async"><mat-icon>account_box</mat-icon><span class="sidenav-text" *ngIf="showText"> Account</span></a>
+  <a mat-list-item routerLink="/private/account" *ngIf="auth.inRole(['User']) | async"><mat-icon>account_box</mat-icon><span class="sidenav-text" *ngIf="showText"> Billing</span></a>
   <app-sidebar-divider [dividerText]="'Admin'"></app-sidebar-divider>
   <a mat-list-item routerLink="/admin/users" *ngIf="auth.inRole(['Admin']) | async"><mat-icon>people</mat-icon><span class="sidenav-text" *ngIf="showText"> Users</span></a>
   <a mat-list-item routerLink="/admin/roles" *ngIf="auth.inRole(['Admin']) | async"><mat-icon>grain</mat-icon><span class="sidenav-text" *ngIf="showText"> Roles</span></a>
