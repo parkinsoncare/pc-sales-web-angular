@@ -31,8 +31,8 @@ export class StripePaymentsService {
     return this.http.post(environment.stripe.stripeRestServiceUrl + '/getPayments/', params);
   }
 
-  savePurchaseRequest(params: any): Observable < any > {
-    return this.http.post(environment.stripe.stripeRestServiceUrl + '/savePurchaseRequest/', params);
+  getCompletedSessionsByAuth0UserId(params: any): Observable < any > {
+    return this.http.post(environment.stripe.stripeRestServiceUrl + '/getCompletedSessionsByAuth0UserId/', params);
   }
 
   sessionCancelled(params: any): Observable < any > {
