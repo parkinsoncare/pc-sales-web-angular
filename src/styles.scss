@@ -28,6 +28,8 @@ mat-card {
 .list-mat-card {
   margin: 0px;
   padding: 2px !important;
+  box-shadow: 0 0 0 0 rgba(0,0,0,0), 0 0px 0px 0 rgba(0,0,0,0), 0 0px 0px 0 rgba(0,0,0,0) !important;
+  border-bottom: 1px dotted grey;
 }
 
 
@@ -42,4 +44,5 @@ mat-card {
 .list-paginator {
   margin: 0px;
   padding: 5px !important;
+  box-shadow: 0 0 0 0 rgba(0,0,0,0), 0 0px 0px 0 rgba(0,0,0,0), 0 0px 0px 0 rgba(0,0,0,0) !important;
 }
