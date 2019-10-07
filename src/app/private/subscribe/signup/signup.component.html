@@ -107,7 +107,7 @@
 
             <div fxLayout="row" fxLayoutAlign="end start" class="full-width">
               <button class="stepper-button prev-button" fxFlex="15%" fxFlexAlign="right" mat-raised-button color="primary" matStepperPrevious>Back</button>
-              <button class="stepper-button prev-button" [disabled]="!productFormGroup.valid" fxFlex="15%" fxFlexAlign="right" mat-raised-button color="primary" matStepperNext (click)="setupPayment()">Iscriverti</button>
+              <button class="stepper-button prev-button" [disabled]="!productFormGroup.valid" fxFlex="15%" fxFlexAlign="right" mat-raised-button color="primary" matStepperNext (click)="initiateStripe()">Iscriverti</button>
             </div>
 
           </form>

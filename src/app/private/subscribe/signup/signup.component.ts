@@ -90,29 +90,46 @@ export class SignupComponent implements OnInit {
     return this.tosAgreement;
   }
 
-  async creditCard(savedPayment) {
+  async initiateStripe() {
 
-    this.stripe.createSession(savedPayment)
-      .subscribe(stripeSession => {
+    this.auth.userProfile$
+      .subscribe( user => {
 
-        this.stripeSession = stripeSession;
-        this.snackMessage.open('Got Stripe Session', null, {duration: environment.snackBarDuration, verticalPosition: 'bottom'});
+        const payment = {
+          ...this.dataHandlingFormGroup.value,
+          ...this.tosFormGroup.value,
+          ...this.productFormGroup.value,
+          createDate: new Date(),
+          auth0UserSub: user.sub,
+          purchaseData: environment.stripe.purchaseableItems[this.productFormGroup.value.product]
+        };
 
-        this.stripe.stripe.redirectToCheckout({
-          // Make the id field from the Checkout Session creation API response
-          // available to this file, so you can provide it as parameter here
-          // instead of the {{CHECKOUT_SESSION_ID}} placeholder.
-          sessionId: stripeSession.id
-        }).then((result) => {
-          // If `redirectToCheckout` fails due to a browser or network
-          // error, display the localized error message to your customer
-          // using `result.error.message`.
-          console.log(result);
-        });
+        this.stripe.createSession(payment)
+          .subscribe(stripeSession => {
 
+            this.stripeSession = stripeSession;
+            this.snackMessage.open('Got Stripe Session', null, {duration: environment.snackBarDuration, verticalPosition: 'bottom'});
+
+            this.stripe.stripe.redirectToCheckout({
+              // Make the id field from the Checkout Session creation API response
+              // available to this file, so you can provide it as parameter here
+              // instead of the {{CHECKOUT_SESSION_ID}} placeholder.
+              sessionId: stripeSession._id
+            }).then((result) => {
+              // If `redirectToCheckout` fails due to a browser or network
+              // error, display the localized error message to your customer
+              // using `result.error.message`.
+              console.log(result);
+            });
+
+          }, e => {
+            this.snackMessage.open('Error getting Stripe Session', null, {duration: environment.snackBarDuration, verticalPosition: 'top'});
+          });
       }, e => {
-        this.snackMessage.open('Error getting Stripe Session', null, {duration: environment.snackBarDuration, verticalPosition: 'top'});
+        this.snackMessage.open('Error getting user profile', null, {duration: environment.snackBarDuration, verticalPosition: 'top'});
       });
+
+
 
   }
 
@@ -129,12 +146,15 @@ export class SignupComponent implements OnInit {
           purchaseData: environment.stripe.purchaseableItems[this.productFormGroup.value.product]
         };
 
+
+        /*
         this.stripe.savePurchaseRequest(payment)
           .subscribe ( savedPayment => {
             this.creditCard(savedPayment);
           }, e => {
             this.snackMessage.open('Error saving payment Info!', null,{verticalPosition: 'top', duration:  environment.snackBarDuration});
           });
+          */
 
       });
   }
