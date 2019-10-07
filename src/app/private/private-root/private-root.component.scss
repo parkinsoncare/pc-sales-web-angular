@@ -6,13 +6,17 @@
   z-index: 1;
 }
 
-.sideNavContainer {
+.sideNavContainer-remove {
   position: relative;
   overflow: visible;
   background-color: darkgrey;
 }
 
-.auth-container {
+.auth-container-remove {
   position: relative;
   overflow: visible;
+}
+
+mat-sidenav {
+  margin: 10px;
 }
