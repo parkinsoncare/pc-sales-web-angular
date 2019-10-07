@@ -14,6 +14,13 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
+docker build -t opinionatedstack/web-angular:latest -f Dockerfile.prod .
+docker push opinionatedstack/web-angular:latest
+
+ng build --prod && docker build -t opinionatedstack/web-angular:latest -f Dockerfile.prod . && docker push opinionatedstack/web-angular:latest && say done
+---
+docker run -it --rm --name web -p 80:80 -p 443:443 opinionatedstack/web-angular
+
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
@@ -57,3 +64,5 @@ https://github.com/auth0-samples/auth0-angular-samples
 
 I think this was the article:
 https://www.viget.com/articles/keeping-the-framework-for-your-application-up-to-date-with-git/
+
+
