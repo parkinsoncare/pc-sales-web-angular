@@ -35,6 +35,10 @@
           },
           "configurations": {
             "production": {
+              "index": { //prod index replacement
+                "input": "src/index.prod.html",
+                "output": "index.html"
+              },
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -72,7 +76,11 @@
                   "replace": "src/index.html",
                   "with": "src/index.qa.html"
                 }
-              ]
+              ],
+              "index": { //qa index replacement
+                "input": "src/index.qa.html",
+                "output": "index.html"
+              }
             }
           }
         },
