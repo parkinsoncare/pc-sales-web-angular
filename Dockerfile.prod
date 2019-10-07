@@ -1,31 +1,11 @@
-# Instructions to create this file from :
-# https://hub.docker.com/_/node/
-
-# You can then build and run the Docker image:
-# $ docker build -t patricknee/dtxm-angular .
-# $ docker run -it --rm --name dps-ang1 -p 4200:4200 patricknee/dtxm-angular
-
-# To run on localhost, set package.json script to: ng serve --host 0.0.0.0
-# This is based on:
-# http://stackoverflow.com/questions/41485063/docker-container-with-angular2-app-and-nodejs-does-not-respond
-
-
-#####
-## This is to run the ng server
-#FROM node:6.10.0-onbuild
-# replace this with your application's default port
-#EXPOSE 4200
-
-## Done run the ng server
-#####
-
 FROM nginx
+COPY nginx.conf.prod /etc/nginx/nginx.conf
 COPY dist /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/nginx.conf
 
-COPY ./ssl/star_parkinsoncare_com.key /usr/ssl/priv/star_parkinsoncare_com.key
-COPY ./ssl/parkinsoncare.com.chained.crt /usr/ssl/pub/parkinsoncare.com.chained.crt
+COPY ./ssl/fullchain.crt /usr/ssl/pub/fullchain.crt
+COPY ./ssl/private.key /usr/ssl/priv/private.key
 
 RUN chmod 644 /usr/ssl/pub/*.crt \
   && chmod 640 /usr/ssl/priv/*.key
+
 
