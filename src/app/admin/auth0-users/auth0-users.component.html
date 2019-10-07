@@ -130,6 +130,11 @@
     <mat-card-actions>
       <button mat-raised-button color="primary" (click)="updateSelectedUser()">Save</button>
     </mat-card-actions>
+
+    <mat-card>
+      <mat-card-subtitle>Payment History</mat-card-subtitle>
+      <app-stripe-session [user_Id]="selectedUser.user_id"></app-stripe-session>
+    </mat-card>
   </mat-card>
 </mat-card>
 
