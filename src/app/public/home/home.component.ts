@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from '../../services/rest/rest.service';
-import {GTagManagerService} from '../../services/g-tag-manager/g-tag-manager.service';
+import { environment } from './../../../environments/environment';
+import {Router} from '@angular/router';
 
 
 enum RestStatus {
@@ -22,16 +23,21 @@ export class HomeComponent implements OnInit {
   privateGetRestResult: any;
   privatePostRestResult: any;
 
-  publicGetStatus: string = '';
-  publicPostStatus: string = '';
-  privateGetStatus: string = '';
-  privatePostStatus: string = '';
+  publicGetStatus: string = RestStatus.Idle;
+  publicPostStatus: string = RestStatus.Idle;
+  privateGetStatus: string = RestStatus.Idle;
+  privatePostStatus: string = RestStatus.Idle;
+
+  env: any = environment;
+  location: string;
 
   constructor(private restService: RestService,
-              private gtm: GTagManagerService) { }
+              router: Router) { }
 
   ngOnInit() {
-
+    this.location = window.location.origin;
+    console.log('window location:');
+    console.log(window.location);
   }
 
   loadData() {
@@ -82,6 +88,16 @@ export class HomeComponent implements OnInit {
         this.privatePostRestResult = error;
         this.privatePostStatus = RestStatus.Failure;
       });
+
+  }
+
+  getDisplayURL( restServiceURL ) {
+    if (restServiceURL.indexOf('http') === 0 ){
+      return restServiceURL;
+    }
+    else {
+      return this.location + restServiceURL;
+    }
 
   }
 

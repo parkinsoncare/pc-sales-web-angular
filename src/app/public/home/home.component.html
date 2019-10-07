@@ -2,7 +2,7 @@
   <div fxFlex="50%" fxFlex.lt-sm="80%">
     <mat-card class="full-width-remove api-cards-remove">
       <mat-card-title i18n="public home title|An introduction title for the public home@@public home title">Public Home Page</mat-card-title>
-      <mat-card-subtitle>An opinionated stack for web and mobile apps</mat-card-subtitle>
+      <mat-card-subtitle>The Mean-asStack: An opinionated stack for web and mobile apps</mat-card-subtitle>
 
       <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-between">
         <div fxFlex="22%" fxFlexAlign="center"><img class="comp-logo" src="/assets/public/opstack/mongodb/mongodb.png"/></div>
@@ -11,10 +11,9 @@
         <div fxFlex="22%" fxFlexAlign="center"><img class="comp-logo" src="/assets/public/opstack/nodejs/nodejs-new-pantone-black.png"/></div>
       </div>
 
-      <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-between">
+      <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around">
         <div fxFlex="25%" fxFlexAlign="center"><img class="comp-logo" src="/assets/public/opstack/auth0/Auth0-Logo-Light-BG.png"/></div>
         <div fxFlex="25%" fxFlexAlign="center"><img class="comp-logo" src="/assets/public/opstack/stripe/Stripe-logo-slate-lg.png"/></div>
-        <div fxFlex="25%" fxFlexAlign="center"><img class="comp-logo" src="/assets/public/opstack/npm/npm-logo-red.png"/></div>
       </div>
     </mat-card>
   </div>
@@ -26,42 +25,58 @@
 
 <div fxLayout="row wrap" fxLayoutAlign="space-around" fxLayout.lt-sm="column">
   <div fxFlex="35%" fxFlex.lt-sm="80%">
-    <mat-card class="full-width-remove " [ngClass]="publicGetStatus">
+    <mat-card class="full-width-remove " >
       <mat-card-title>1: Public Get Call Test</mat-card-title>
-      <div *ngIf="publicGetRestResult">
+      <div *ngIf="publicGetRestResult" [ngClass]="publicGetStatus">
         <pre>{{publicGetRestResult|json:'pretty'}}</pre>
       </div>
-      <div *ngIf="!publicGetRestResult">No result from public GET call.</div>
+      <div *ngIf="!publicGetRestResult" [ngClass]="publicGetStatus">No result from public GET call.</div>
+
+      <div>Test this endpoint from Postman:</div>
+      <div>GET {{getDisplayURL(env.restServiceURL + '/public')}}</div>
+      <div>The endpoint is public and should respond with JSON.</div>
     </mat-card>
   </div>
 
   <div fxFlex="35%" fxFlex.lt-sm="80%">
-    <mat-card class="full-width-remove " [ngClass]="publicPostStatus">
+    <mat-card class="full-width-remove " >
       <mat-card-title>2: Public POST Call Test</mat-card-title>
-      <div *ngIf="publicPostRestResult">
+      <div *ngIf="publicPostRestResult" [ngClass]="publicPostStatus">
         <pre>{{publicPostRestResult|json:'pretty'}}</pre>
       </div>
-      <div *ngIf="!publicPostRestResult">No result from public PUT call.</div>
+      <div *ngIf="!publicPostRestResult" [ngClass]="publicPostStatus">No result from public POST call.</div>
+
+      <div>Test this endpoint from Postman:</div>
+      <div>POST {{getDisplayURL(env.restServiceURL + '/public')}}</div>
+      <div>The endpoint is public and should echo your JSON body.</div>
     </mat-card>
   </div>
 
   <div fxFlex="35%" fxFlex.lt-sm="80%">
-    <mat-card class="full-width-remove " [ngClass]="privateGetStatus">
+    <mat-card class="full-width-remove " >
       <mat-card-title>3: Private Get Call Test</mat-card-title>
-      <div *ngIf="privateGetRestResult">
+      <div *ngIf="privateGetRestResult" [ngClass]="privateGetStatus">
         <pre>{{privateGetRestResult|json:'pretty'}}</pre>
       </div>
-      <div *ngIf="!privateGetRestResult">No result from private GET call.</div>
+      <div *ngIf="!privateGetRestResult" [ngClass]="privateGetStatus">No result from private GET call.</div>
+
+      <div>Test this endpoint from Postman:</div>
+      <div>GET {{getDisplayURL(env.restServiceURL + '/private')}}</div>
+      <div>The endpoint is private and will reject requests without a valid JWT token.</div>
     </mat-card>
   </div>
 
   <div fxFlex="35%" fxFlex.lt-sm="80%">
-    <mat-card class="full-width-remove " [ngClass]="privatePostStatus">
+    <mat-card class="full-width-remove " >
       <mat-card-title>4: Private POST Call Test</mat-card-title>
-      <div *ngIf="privatePostRestResult">
+      <div *ngIf="privatePostRestResult" [ngClass]="privatePostStatus">
         <pre>{{privatePostRestResult|json:'pretty'}}</pre>
       </div>
-      <div *ngIf="!privatePostRestResult">No result from private PUT call.</div>
+      <div *ngIf="!privatePostRestResult" [ngClass]="privatePostStatus">No result from private POST call.</div>
+
+      <div>Test this endpoint from Postman:</div>
+      <div>POST {{getDisplayURL(env.restServiceURL + '/private')}}</div>
+      <div>The endpoint is private and will reject requests without a valid JWT token.</div>
     </mat-card>
   </div>
 </div>
