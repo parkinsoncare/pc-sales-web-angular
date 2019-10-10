@@ -58,7 +58,7 @@ export class Auth0UsersComponent implements OnInit {
     this.selectedUser = null;
     this.selectedUserLoading = true;
 
-    const params = { user_id: clickedUser.user_id};
+    const params = { user_id: clickedUser.user_id };
 
     this.rest.adminGetUser(params)
       .pipe(
