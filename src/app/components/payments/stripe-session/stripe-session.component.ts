@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { StripePaymentsService } from '../../../services/stripe-payments/stripe-payments.service';
 import { MatSnackBar } from '@angular/material';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-stripe-session',
@@ -9,18 +10,37 @@ import { MatSnackBar } from '@angular/material';
 })
 export class StripeSessionComponent implements OnInit {
   @Input() user_Id: string;
-  result: string
+  sessions: any[];
+
+  itemsFound: number = 0;
+  pageSize: number = 2;
+  pageIndex: number = 0;
+  pageSizeOptions: number [] = [2, 5, 10, 25];
 
   constructor(private stripe: StripePaymentsService,
               private snackMessage: MatSnackBar) { }
 
   ngOnInit() {
-    this.stripe.getCompletedSessionsByAuth0UserId({user_id: this.user_Id})
+    this.loadData();
+  }
+
+  loadData() {
+    this.stripe.getCompletedSessionsByAuth0UserId({
+      user_id: this.user_Id,
+      from: (this.pageIndex * this.pageSize), size: this.pageSize
+    })
       .subscribe( r => {
-        this.result = JSON.stringify(r, null, 4);
+        this.sessions = r.records;
+        this.itemsFound = r.total;
       }, e => {
-        this.snackMessage.open('Error searching for users', 'x',{verticalPosition: 'top'});
+        this.snackMessage.open('Error getting purchase history', 'x',{verticalPosition: 'top'});
       });
+  }
+
+  pageChange(event: PageEvent) {
+    this.pageIndex = event.pageIndex;
+    this.pageSize = event.pageSize;
+    this.loadData();
   }
 
 }

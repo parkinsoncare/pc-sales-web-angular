@@ -15,7 +15,7 @@ export class RestService {
     return this.http.get(environment.restServiceURL + '/public/');
   }
 
-  publicPut(params:any): Observable <any> {
+  publicPost(params:any): Observable <any> {
     return this.http.post(environment.restServiceURL + '/public/', params);
   }
 
@@ -23,7 +23,7 @@ export class RestService {
     return this.http.get(environment.restServiceURL + '/private/');
   }
 
-  privatePut(params:any): Observable <any> {
+  privatePost(params:any): Observable <any> {
     return this.http.post(environment.restServiceURL + '/private/', params);
   }
 
@@ -41,5 +41,13 @@ export class RestService {
 
   adminGetRoles(params:any): Observable <any> {
     return this.http.post(environment.restServiceURL + '/admin/getRoles', params);
+  }
+
+  privateRequirePostPermission(params:any): Observable <any> {
+    return this.http.post(environment.restServiceURL + '/private/requirePostPermission', params);
+  }
+
+  privateRequireNeverPermission(params:any): Observable <any> {
+    return this.http.post(environment.restServiceURL + '/private/requireNeverPermission', params);
   }
 }

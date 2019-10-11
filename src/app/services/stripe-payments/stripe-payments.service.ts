@@ -38,4 +38,8 @@ export class StripePaymentsService {
   sessionCancelled(params: any): Observable < any > {
     return this.http.post(environment.stripe.stripeRestServiceUrl + '/sessionCancelled/', params);
   }
+
+  getPaymentsBySubscriptionId(params: any): Observable < any > {
+    return this.http.post(environment.stripe.stripeRestServiceUrl + '/getPaymentsBySubscriptionId/', params);
+  }
 }

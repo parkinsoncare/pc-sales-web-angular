@@ -1,3 +1,25 @@
-<p>payments works! {{user_Id}}</p>
+<p>payments works!</p>
 
-<div *ngIf="result"><pre>{{result}}</pre></div>
+<div fxLayout="row" >
+  <div fxFlex *ngIf="sessions">
+    <div *ngIf="sessions.length>0">
+      <mat-paginator [length]="itemsFound"
+                     [pageSize]="pageSize"
+                     [pageSizeOptions]="pageSizeOptions"
+                     (page)="pageChange($event)" >
+      </mat-paginator>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="sessions">
+  <mat-card *ngFor="let session of sessions">
+    <mat-card-subtitle>{{session.createDate|date}}</mat-card-subtitle>
+    <div fxLayout="row" fxLayoutAlign="space-around">
+      <div fxFlex="0 0 auto">{{session.product}}</div>
+      <div fxFlex="0 0 auto">{{session.purchaseData.purchaseType}}</div>
+      <div fxFlex="0 0 auto">{{session.stripeSubscriptionId}}</div>
+    </div>
+    <pre>{{session|json:'pretty'}}</pre>
+  </mat-card>
+</div>

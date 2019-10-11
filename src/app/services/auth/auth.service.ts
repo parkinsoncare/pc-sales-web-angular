@@ -18,7 +18,8 @@ export class AuthService {
       domain: environment.auth0.domain,
       client_id: environment.auth0.clientID,
       redirect_uri: environment.auth0.callbackUri,
-      audience: environment.auth0.apiIdentifier
+      audience: environment.auth0.apiIdentifier,
+      scope: 'post:read' // environment.auth0.requestedScopes
     })
   ) as Observable<Auth0Client>).pipe(
     shareReplay(1), // Every subscription receives the same shared value
@@ -89,7 +90,8 @@ export class AuthService {
       // Call method to log in
       client.loginWithRedirect({
         redirect_uri: environment.auth0.callbackUri,
-        appState: { target: redirectPath }
+        appState: { target: redirectPath },
+        // scope: environment.auth0.requestedScopes,
       });
     }, e => {
       console.log('Login Error:', e);
