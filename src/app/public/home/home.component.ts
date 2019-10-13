@@ -17,6 +17,11 @@ export class HomeComponent implements OnInit {
   permissionedAdminPostResult = {status: 'Click above to try'};
   permissionedNeverPostResult = {status: 'Click above to try'};
 
+  publicPostMessage = 'Public POST message';
+  privatePostMessage = 'Private POST message';
+  permissionedAdminPostMessage = 'Permissionsed POST message';
+  permissionedNeverPostMessage = 'Never permissioned POST message';
+
   env: any = environment;
   location: string;
 
@@ -27,19 +32,6 @@ export class HomeComponent implements OnInit {
     // Used only for display purposes in the demo to say:
     // "Use Postman to call your endpoint at this URL"
     this.location = window.location.origin;
-  }
-
-  loadData() {
-
-  }
-
-  getDisplayURL( restServiceURL ) {
-    if (restServiceURL.indexOf('http') === 0 ){
-      return restServiceURL;
-    }
-    else {
-      return this.location + restServiceURL;
-    }
   }
 
   publicGet() {
@@ -57,7 +49,7 @@ export class HomeComponent implements OnInit {
   publicPost() {
     this.publicPostResult = { status: 'loading'};
 
-    this.restService.publicPost( {myData: 'Hello, World!'})
+    this.restService.publicPost( { myData: this.publicPostMessage })
       .subscribe ( result => {
         this.publicPostResult = result;
       }, error => {
@@ -79,7 +71,7 @@ export class HomeComponent implements OnInit {
   privatePost() {
     this.privatePostResult = { status: 'loading'};
 
-    this.restService.privatePost( {myData: 'Hello, World!'})
+    this.restService.privatePost( { myData: this.privatePostMessage })
       .subscribe ( result => {
         this.privatePostResult = result;
       }, error => {
@@ -90,7 +82,7 @@ export class HomeComponent implements OnInit {
   privateRequirePostPermission() {
     this.permissionedAdminPostResult = { status: 'loading'};
 
-    this.restService.privateRequirePostPermission( {myData: 'Hello, World!'})
+    this.restService.privateRequirePostPermission( { myData: this.permissionedAdminPostMessage })
       .subscribe ( result => {
         this.permissionedAdminPostResult = result;
       }, error => {
@@ -109,6 +101,15 @@ export class HomeComponent implements OnInit {
       });
   }
 
+  loadAll() {
+    this.publicGet();
+    this.publicPost();
+    this.privateGet();
+    this.privatePost();
+    this.privateRequirePostPermission();
+    this.privateNeverPermissionedPost();
+  }
+
   // Eye candy: just a little color
   getClassFromStatus( resultObj ) {
     switch (resultObj.status) {
@@ -124,6 +125,15 @@ export class HomeComponent implements OnInit {
       default:
         return 'failure';
         break;
+    }
+  }
+
+  getDisplayURL( restServiceURL ) {
+    if (restServiceURL.indexOf('http') === 0 ){
+      return restServiceURL;
+    }
+    else {
+      return this.location + restServiceURL;
     }
   }
 

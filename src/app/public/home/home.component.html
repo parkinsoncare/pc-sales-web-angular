@@ -20,7 +20,7 @@
 </div>
 
 <div fxLayout="row" fxLayoutAlign="center">
-  <button id="dashboard-button" fxFlex="0 0 auto" mat-raised-button color="primary" (click)="loadData()">Reload All Rest Calls</button>
+  <button id="dashboard-button" fxFlex="0 0 auto" mat-raised-button color="primary" (click)="loadAll()">Reload All Rest Calls</button>
 </div>
 
 <div fxLayout="row wrap" fxLayoutAlign="space-around" fxLayout.lt-sm="column">
@@ -37,11 +37,20 @@
           </div>
         </div>
       </mat-card-title>
+
+      <mat-card-subtitle>
+        <div fxLayout="row" fxLayoutAlign="start">
+          <div fxFlex="0 0 auto">
+            Any user can call this endpoint.
+          </div>
+        </div>
+      </mat-card-subtitle>
+
       <div *ngIf="publicGetResult && publicGetResult.status !== 'loading'" [ngClass]="getClassFromStatus(publicGetResult)">
-        <pre>{{ publicGetResult |json:'pretty' }}</pre>
+        <pre class="results-display">{{ publicGetResult | json }}</pre>
       </div>
       <div *ngIf="publicGetResult.status === 'loading'" [ngClass]="getClassFromStatus(publicGetResult)">
-        <div fxLayout="row" fxLayoutAlign="center"><div fxFlex="0 0 auto"><mat-spinner></mat-spinner></div></div>
+        <div class="results-display" fxLayout="row" fxLayoutAlign="center center"><div fxFlex="0 0 auto"><mat-spinner></mat-spinner></div></div>
       </div>
 
       <div fxLayout="row" fxLayoutAlign="center">
@@ -57,52 +66,37 @@
   <div fxFlex="35%" fxFlex.lt-sm="80%">
     <mat-card class="full-width-remove " >
       <mat-card-title>
-
         <div fxLayout="row" fxLayoutAlign="space-between">
           <div fxFlex="0 0 auto" >
-            2: Private Get Test
-          </div>
-          <div fxFlex="0 0 auto" >
-            <button mat-raised-button color="primary" (click)="privateGet()">Try me!</button>
-          </div>
-        </div>
-
-      </mat-card-title>
-      <div *ngIf="privateGetResult && privateGetResult.status !== 'loading'" [ngClass]="getClassFromStatus(privateGetResult)">
-        <pre>{{ privateGetResult |json:'pretty' }}</pre>
-      </div>
-      <div *ngIf="privateGetResult.status === 'loading'" [ngClass]="getClassFromStatus(privateGetResult)">
-        <div fxLayout="row" fxLayoutAlign="center"><div fxFlex="0 0 auto"><mat-spinner></mat-spinner></div></div>
-      </div>
-
-      <div fxLayout="row" fxLayoutAlign="center">
-        <div fxFlex="0 0 auto" *ngIf="privateGetResult.status === 'success'">Valid token provided</div>
-        <div fxFlex="0 0 auto" *ngIf="parseInt(privateGetResult.status) === 401">No token provided</div>
-      </div>
-
-      <div>Test this endpoint from Postman:</div>
-      <div>GET {{getDisplayURL(env.restServiceURL + '/private')}}</div>
-      <div>The endpoint is private and will reject requests without a valid JWT token.</div>
-    </mat-card>
-  </div>
-
-  <div fxFlex="35%" fxFlex.lt-sm="80%">
-    <mat-card class="full-width-remove " >
-      <mat-card-title>
-        <div fxLayout="row" fxLayoutAlign="space-between">
-          <div fxFlex="0 0 auto" >
-            3: Public POST Test
+            2: Public POST Test
           </div>
           <div fxFlex="0 0 auto" >
             <button mat-raised-button color="primary" (click)="publicPost()">Try me!</button>
           </div>
         </div>
       </mat-card-title>
+
+
+      <mat-card-subtitle>
+        <div fxLayout="row" fxLayoutAlign="start">
+          <div fxFlex="0 0 auto">
+            Any user can call this endpoint.
+          </div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start">
+          <div fxFlex="0 0 auto">
+            <mat-form-field>
+              <input matInput placeholder="Sample data" [(ngModel)]="publicPostMessage"/>
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card-subtitle>
+
       <div *ngIf="publicPostResult && publicPostResult.status !== 'loading'" [ngClass]="getClassFromStatus(publicPostResult)">
-        <pre>{{ publicPostResult |json:'pretty' }}</pre>
+        <pre class="results-display">{{ publicPostResult |json }}</pre>
       </div>
       <div *ngIf="publicPostResult.status === 'loading'" [ngClass]="getClassFromStatus(publicPostResult)">
-        <div fxLayout="row" fxLayoutAlign="center"><div fxFlex="0 0 auto"><mat-spinner></mat-spinner></div></div>
+        <div class="results-display" fxLayout="row" fxLayoutAlign="center center"><div fxFlex="0 0 auto"><mat-spinner></mat-spinner></div></div>
       </div>
 
       <div fxLayout="row" fxLayoutAlign="center">
@@ -121,6 +115,47 @@
 
         <div fxLayout="row" fxLayoutAlign="space-between">
           <div fxFlex="0 0 auto" >
+            3: Private Get Test
+          </div>
+          <div fxFlex="0 0 auto" >
+            <button mat-raised-button color="primary" (click)="privateGet()">Try me!</button>
+          </div>
+        </div>
+
+      </mat-card-title>
+
+      <mat-card-subtitle>
+        <div fxLayout="row" fxLayoutAlign="start">
+          <div fxFlex="0 0 auto">
+            Only authenticated users can call this endpoint.
+          </div>
+        </div>
+      </mat-card-subtitle>
+
+      <div *ngIf="privateGetResult && privateGetResult.status !== 'loading'" [ngClass]="getClassFromStatus(privateGetResult)">
+        <pre class="results-display">{{ privateGetResult | json }}</pre>
+      </div>
+      <div *ngIf="privateGetResult.status === 'loading'" [ngClass]="getClassFromStatus(privateGetResult)">
+        <div class="results-display" fxLayout="row" fxLayoutAlign="center center"><div fxFlex="0 0 auto"><mat-spinner></mat-spinner></div></div>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="0 0 auto" *ngIf="privateGetResult.status === 'success'">Valid token provided</div>
+        <div fxFlex="0 0 auto" *ngIf="parseInt(privateGetResult.status) === 401">No token provided</div>
+      </div>
+
+      <div>Test this endpoint from Postman:</div>
+      <div>GET {{getDisplayURL(env.restServiceURL + '/private')}}</div>
+      <div>The endpoint is private and will reject requests without a valid JWT token.</div>
+    </mat-card>
+  </div>
+
+  <div fxFlex="35%" fxFlex.lt-sm="80%">
+    <mat-card class="full-width-remove " >
+      <mat-card-title>
+
+        <div fxLayout="row" fxLayoutAlign="space-between">
+          <div fxFlex="0 0 auto" >
             4: Private POST Test
           </div>
           <div fxFlex="0 0 auto" >
@@ -129,11 +164,27 @@
         </div>
 
       </mat-card-title>
+
+      <mat-card-subtitle>
+        <div fxLayout="row" fxLayoutAlign="start">
+          <div fxFlex="0 0 auto">
+            Only authentedated users can call this endpoint.
+          </div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start">
+          <div fxFlex="0 0 auto">
+            <mat-form-field>
+              <input matInput placeholder="Sample data" [(ngModel)]="privatePostMessage"/>
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card-subtitle>
+
       <div *ngIf="privatePostResult && privatePostResult.status !== 'loading'" [ngClass]="getClassFromStatus(privatePostResult)">
-        <pre>{{ privatePostResult |json:'pretty' }}</pre>
+        <pre class="results-display">{{ privatePostResult | json }}</pre>
       </div>
       <div *ngIf="privatePostResult.status === 'loading'" [ngClass]="getClassFromStatus(privatePostResult)">
-        <div fxLayout="row" fxLayoutAlign="center"><div fxFlex="0 0 auto"><mat-spinner></mat-spinner></div></div>
+        <div class="results-display" fxLayout="row" fxLayoutAlign="center center"><div fxFlex="0 0 auto"><mat-spinner></mat-spinner></div></div>
       </div>
 
       <div fxLayout="row" fxLayoutAlign="center">
@@ -161,12 +212,25 @@
         </div>
 
       </mat-card-title>
-      <mat-card-subtitle>Admin users have this permission, they should get success.</mat-card-subtitle>
+      <mat-card-subtitle>
+        <div fxLayout="row" fxLayoutAlign="start">
+          <div fxFlex="0 0 auto">
+            Only authorized users (Admin role) can call this endpoint.
+          </div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start">
+          <div fxFlex="0 0 auto">
+            <mat-form-field>
+              <input matInput placeholder="Sample data" [(ngModel)]="permissionedAdminPostMessage"/>
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card-subtitle>
       <div *ngIf="permissionedAdminPostResult && permissionedAdminPostResult.status !== 'loading'" [ngClass]="getClassFromStatus(permissionedAdminPostResult)">
-        <pre>{{ permissionedAdminPostResult |json:'pretty' }}</pre>
+        <pre class="results-display">{{ permissionedAdminPostResult | json }}</pre>
       </div>
       <div *ngIf="permissionedAdminPostResult.status === 'loading'" [ngClass]="getClassFromStatus(permissionedAdminPostResult)">
-        <div fxLayout="row" fxLayoutAlign="center"><div fxFlex="0 0 auto"><mat-spinner></mat-spinner></div></div>
+        <div class="results-display" fxLayout="row" fxLayoutAlign="center center"><div fxFlex="0 0 auto"><mat-spinner></mat-spinner></div></div>
       </div>
 
       <div fxLayout="row" fxLayoutAlign="center">
@@ -187,7 +251,7 @@
 
         <div fxLayout="row" fxLayoutAlign="space-between">
           <div fxFlex="0 0 auto" >
-            6: Rejected Permissioned POST Test
+            6: Never Permissioned POST Test
           </div>
           <div fxFlex="0 0 auto" >
             <button mat-raised-button color="primary" (click)="privateNeverPermissionedPost()">Try me!</button>
@@ -195,12 +259,26 @@
         </div>
 
       </mat-card-title>
-      <mat-card-subtitle>No users have this permission, it will always fail.</mat-card-subtitle>
+      <mat-card-subtitle>
+        <div fxLayout="row" fxLayoutAlign="start">
+          <div fxFlex="0 0 auto">
+            Only authorized users can call this endpoint, no such roles have permission in this demo and the call will always fail.
+          </div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start">
+          <div fxFlex="0 0 auto">
+            <mat-form-field>
+              <input matInput placeholder="Sample data" [(ngModel)]="permissionedNeverPostMessage"/>
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card-subtitle>
+
       <div *ngIf="permissionedNeverPostResult && permissionedNeverPostResult.status !== 'loading'" [ngClass]="getClassFromStatus(permissionedNeverPostResult)">
-        <pre>{{ permissionedNeverPostResult |json:'pretty' }}</pre>
+        <pre class="results-display">{{ permissionedNeverPostResult | json }}</pre>
       </div>
       <div *ngIf="permissionedNeverPostResult.status === 'loading'" [ngClass]="getClassFromStatus(permissionedNeverPostResult)">
-        <div fxLayout="row" fxLayoutAlign="center"><div fxFlex="0 0 auto"><mat-spinner></mat-spinner></div></div>
+        <div class="results-display" fxLayout="row" fxLayoutAlign="center center"><div fxFlex="0 0 auto"><mat-spinner></mat-spinner></div></div>
       </div>
 
       <div fxLayout="row" fxLayoutAlign="center">

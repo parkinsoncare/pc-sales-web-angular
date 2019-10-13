@@ -14,7 +14,7 @@
   background-color: yellow;
 }
 
-pre {
+pre-remove {
   overflow-x: auto;
   white-space: pre-wrap;
   white-space: -moz-pre-wrap;
@@ -29,4 +29,10 @@ pre {
 
 .comp-logo {
   width: 150px;
+}
+
+.results-display {
+  height: 150px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
