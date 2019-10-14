@@ -1,11 +1,10 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
-import {MatDrawer, MatSidenav, MatSidenavContainer} from '@angular/material/sidenav';
+import { MatDrawer, MatSidenav, MatSidenavContainer } from '@angular/material/sidenav';
 import { Subscription, Observable } from 'rxjs';
 import { MenuToggleBroadcastService } from '../../services/menu-toggle-broadcast/menu-toggle-broadcast.service';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
-import {SidebarMenuComponent} from '../../components/sidebar-menu/sidebar-menu.component';
+import { SidebarMenuComponent } from '../../components/sidebar-menu/sidebar-menu.component';
 
 @Component({
   selector: 'app-public-root',
@@ -18,14 +17,8 @@ export class PublicRootComponent implements OnInit, OnDestroy {
   @ViewChild(MatSidenavContainer, {static: false}) sidenavContainer: MatSidenavContainer;
   menuToggleBroadcastSubscription: Subscription;
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches)
-    );
-
   constructor(public auth: AuthService,
-              private menuToggleBroadcast: MenuToggleBroadcastService,
-              private breakpointObserver: BreakpointObserver) {
+              private menuToggleBroadcast: MenuToggleBroadcastService) {
     this.menuToggleBroadcastSubscription = menuToggleBroadcast.menuToggled$.subscribe( bValue => {
       this.sidenav.toggle();
     });

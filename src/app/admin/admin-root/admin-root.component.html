@@ -1,8 +1,7 @@
 <mat-sidenav-container class="sideNavContainer">
 
   <mat-sidenav #drawer class="sidenav" fixedInViewport="false"
-               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               mode="side"
                [opened]="true">
 
     <app-sidebar-menu [type]="'public'"></app-sidebar-menu>

@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-// import { JwtModule } from '@auth0/angular-jwt';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
@@ -39,6 +38,8 @@ import { SidebarDividerComponent } from './components/sidebar-divider/sidebar-di
 import { PaymentHistoryComponent } from './components/payments/payment-history/payment-history.component';
 import { SubscriptionHistoryComponent } from './components/payments/subscription-history/subscription-history.component';
 import { StripeSessionComponent } from './components/payments/stripe-session/stripe-session.component';
+import { DemoRestCallComponent } from './components/demo-rest-call/demo-rest-call.component';
+import { Header2Component } from './components/header2/header2.component';
 
 
 // AoT requires an exported function for factories
@@ -72,6 +73,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     PaymentHistoryComponent,
     SubscriptionHistoryComponent,
     StripeSessionComponent,
+    DemoRestCallComponent,
+    Header2Component,
   ],
   imports: [
     BrowserModule,

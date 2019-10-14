@@ -1,10 +1,11 @@
 <mat-sidenav-container class="sideNavContainer">
 
   <mat-sidenav #drawer class="sidenav" fixedInViewport="false"
-               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               mode="side"
                [opened]="false">
-
+<!--
+               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'over' : 'side'"-->
 
     <button id="text-toggle-button" mat-mini-fab (click)="toggleText()"> o </button>
     <app-sidebar-menu [type]="'public'"></app-sidebar-menu>
