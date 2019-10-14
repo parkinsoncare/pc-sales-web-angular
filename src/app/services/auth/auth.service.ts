@@ -19,7 +19,7 @@ export class AuthService {
       client_id: environment.auth0.clientID,
       redirect_uri: environment.auth0.callbackUri,
       audience: environment.auth0.apiIdentifier,
-      scope: 'post:read' // environment.auth0.requestedScopes
+      scope: environment.auth0.requestedScopes
     })
   ) as Observable<Auth0Client>).pipe(
     shareReplay(1), // Every subscription receives the same shared value
