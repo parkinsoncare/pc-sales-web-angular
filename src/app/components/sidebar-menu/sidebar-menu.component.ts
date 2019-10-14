@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
+import { MenuToggleBroadcastService } from '../../services/menu-toggle-broadcast/menu-toggle-broadcast.service';
 
 @Component({
   selector: 'app-sidebar-menu',
@@ -9,15 +10,14 @@ import { AuthService } from '../../services/auth/auth.service';
 export class SidebarMenuComponent implements OnInit {
   @Input() type: string;
 
-  showText: boolean = true;
-
-  constructor(public auth: AuthService) { }
+  constructor(public auth: AuthService,
+              public sideMenuState: MenuToggleBroadcastService) { }
 
   ngOnInit() {
   }
 
   toggleText() {
-    this.showText = !this.showText;
+    this.sideMenuState.toggleTextDescriptions();
   }
 
 }
