@@ -50,4 +50,8 @@ export class RestService {
   privateRequireNeverPermission(params:any): Observable <any> {
     return this.http.post(environment.restServiceURL + '/private/requireNeverPermission', params);
   }
+
+  setUsersStripeCustomerId(params:any): Observable <any> {
+    return this.http.post(environment.restServiceURL + '/admin/setUsersStripeCustomerId', params);
+  }
 }
