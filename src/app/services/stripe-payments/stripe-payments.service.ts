@@ -42,4 +42,20 @@ export class StripePaymentsService {
   getPaymentsBySubscriptionId(params: any): Observable < any > {
     return this.http.post(environment.stripe.stripeRestServiceUrl + '/getPaymentsBySubscriptionId/', params);
   }
+
+  getSubscriptionById(params: any): Observable < any > {
+    return this.http.post(environment.stripe.stripeRestServiceUrl + '/getSubscriptionById/', params);
+  }
+
+  getPlanById(params: any): Observable < any > {
+    return this.http.post(environment.stripe.stripeRestServiceUrl + '/getPlanById/', params);
+  }
+
+  getProductById(params: any): Observable < any > {
+    return this.http.post(environment.stripe.stripeRestServiceUrl + '/getProductById/', params);
+  }
+
+  getCustomerById(params: any): Observable < any > {
+    return this.http.post(environment.stripe.stripeRestServiceUrl + '/getCustomerById/', params);
+  }
 }
