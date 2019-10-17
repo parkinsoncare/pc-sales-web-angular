@@ -6,8 +6,7 @@
 
         <button
           fxFlex="0 0 auto"
-          fxHide
-          fxShow.lt-md="true"
+          *ngIf="auth.loggedIn || (activeMediaQuery !== 'md' && activeMediaQuery !== 'lg')"
           type="button"
           aria-label="Toggle sidenav"
           mat-icon-button
