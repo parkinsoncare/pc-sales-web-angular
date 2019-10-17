@@ -6,6 +6,7 @@ import { ContactUsComponent } from './public/contact-us/contact-us.component';
 import { PrivateRootComponent } from './private/private-root/private-root.component';
 import { DashboardComponent } from './private/dashboard/dashboard.component';
 import { AuthenticatedGuard } from './guards/authenticated/authenticated.guard';
+import { AuthorizedGuard } from './guards/authorized/authorized.guard';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpInterceptorService } from './services/http-interceptor/http-interceptor.service';
 import { CallbackComponent } from './public/callback/callback.component';
@@ -18,6 +19,7 @@ import { StripeThanksComponent } from './private/subscribe/stripe-thanks/stripe-
 import { StripeCancelComponent } from './private/subscribe/stripe-cancel/stripe-cancel.component';
 import { AccountComponent } from './private/account/account.component';
 import { Auth0RolesComponent } from './admin/auth0-roles/auth0-roles.component';
+import {TestPageComponent} from './private/test-page/test-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/public/home', pathMatch: 'full' },
@@ -31,23 +33,24 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'private', component: PrivateRootComponent, canActivateChild: [AuthenticatedGuard],
+    path: 'private', component: PrivateRootComponent, canActivate: [AuthenticatedGuard], canActivateChild: [AuthenticatedGuard],
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-      { path: 'profile', component: ProfileComponent},
+      { path: 'profile', component: ProfileComponent },
       { path: 'account', component: AccountComponent },
-      { path: 'dashboard', component: DashboardComponent},
-      { path: 'signup', component: SignupComponent},
-      { path: 'signupthanks', component: StripeThanksComponent},
-      { path: 'signupcancel', component: StripeCancelComponent}
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'signup', component: SignupComponent },
+      { path: 'signupthanks', component: StripeThanksComponent },
+      { path: 'signupcancel', component: StripeCancelComponent },
+      { path: 'testpage', component: TestPageComponent }
     ]
   },
   {
-    path: 'admin', component: AdminRootComponent, canActivateChild: [AuthenticatedGuard],
+    path: 'admin', component: AdminRootComponent,  canActivate: [AuthorizedGuard], canActivateChild: [AuthorizedGuard], data: {expectedRoles: ['Admin']},
     children: [
       { path: '', redirectTo: 'users', pathMatch: 'full'},
-      { path: 'users', component: Auth0UsersComponent },
-      { path: 'roles', component: Auth0RolesComponent }
+      { path: 'users', component: Auth0UsersComponent, data: {expectedRoles: ['Admin']} },
+      { path: 'roles', component: Auth0RolesComponent, data: {expectedRoles: ['Admin']} }
     ]
   }
 ];
