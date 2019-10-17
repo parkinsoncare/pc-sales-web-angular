@@ -8,10 +8,15 @@ import { from, of, Observable, BehaviorSubject, combineLatest, throwError } from
 import { tap, catchError, concatMap, shareReplay, map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
+import { JwtHelperService } from "@auth0/angular-jwt";
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
+  private jwtHelper = new JwtHelperService();
+
   // Create an observable of Auth0 instance of client
   auth0Client$ = (from(
     createAuth0Client({
@@ -25,6 +30,7 @@ export class AuthService {
     shareReplay(1), // Every subscription receives the same shared value
     catchError(err => throwError(err))
   );
+
   // Define observables for SDK methods that return promises by default
   // For each Auth0 SDK method, first ensure the client instance is ready
   // concatMap: Using the client instance, call SDK method; SDK returns a promise
@@ -36,9 +42,11 @@ export class AuthService {
   handleRedirectCallback$ = this.auth0Client$.pipe(
     concatMap((client: Auth0Client) => from(client.handleRedirectCallback()))
   );
+
   // Create subject and public observable of user profile data
-  private userProfileSubject$ = new BehaviorSubject<any>(null);
+  userProfileSubject$ = new BehaviorSubject<any>(null);
   userProfile$ = this.userProfileSubject$.asObservable();
+
   // Create a local property for login status
   loggedIn: boolean = null;
 
@@ -140,21 +148,32 @@ export class AuthService {
     });
   }
 
-  public async getToken(): Promise<string> {
-    return ('getToken hello');
-    /*
-    return new Promise ( (resolve, reject) => {
-      return resolve('hello');
-    });
-    */
-    //const accessToken = await this.getTokenSilently$();
-    //return accessToken;
+  async inRoleNotObservable(targetGroupList: string[]) {
+    const roles: any = await this.getTokenClaim(environment.auth0.namespace + 'roles');
+    if (!roles) {
+
+      console.log('auth.inRoleNotOb returns false, no roles');
+      return false;
+    }
+
+    for (let i = 0; i < targetGroupList.length; i++) {
+      if (roles.includes(targetGroupList[i])) {
+        console.log('auth.inRoleNotOb returns true');
+        return true;
+      }
+    }
+
+    console.log('auth.inRoleNotOb returns false');
+    return false;
   }
 
   public inRole(targetGroupList: string[]): Observable<boolean> {
     return this.userProfile$.pipe (
       map ( (user) => {
-        if (!user) { return false; }
+        if (!user) {
+          console.log('auth.inRole returns false');
+          return false;
+        }
 
         const roles = user['http://opinionatedstack.com/roles'];
 
@@ -164,9 +183,41 @@ export class AuthService {
           }
         }
 
+        console.log('auth.inRole returns false');
         return false;
       })
     );
+  }
+
+  async getToken(): Promise<string> {
+    return await this.getTokenSilently$().toPromise();
+  }
+
+  decodeToken() {
+    return new Promise ( async(resolve, reject) => {
+      try {
+        const token = await this.getToken();
+
+        const decodedToken = this.jwtHelper.decodeToken(token);
+        const expirationDate = this.jwtHelper.getTokenExpirationDate(token);
+        const isExpired = this.jwtHelper.isTokenExpired(token);
+
+        return resolve(decodedToken);
+      } catch (e) {
+        return reject (e);
+      }
+    });
+  }
+
+  getTokenClaim(claim) {
+    return new Promise ( async (resolve, reject) => {
+      try {
+        const token = await this.decodeToken();
+        return resolve(token[claim]);
+      } catch (e) {
+        return reject (e);
+      }
+    });
   }
 
 }
