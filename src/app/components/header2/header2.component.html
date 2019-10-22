@@ -70,14 +70,14 @@
                       class="dropdown-item dropdown-profile"
                       *ngIf="profile"
                     >
-                      <fa-icon [icon]="faUser" class="mr-3"></fa-icon> Profile
+                      <mat-icon>person</mat-icon> Profile
                     </a>
                     <button
                       (click)="auth.logout()"
                       class="btn btn-link dropdown-item"
                       id="qsLogoutBtn"
                     >
-                      <fa-icon [icon]="faPowerOff" class="mr-3"></fa-icon> Log out
+                      <mat-icon>power_settings_new</mat-icon> Log out
                     </button>
                   </div>
                 </li>
