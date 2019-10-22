@@ -14,12 +14,19 @@
 
 <div *ngIf="sessions">
   <mat-card *ngFor="let session of sessions">
-    <mat-card-subtitle>{{session.createDate|date}}</mat-card-subtitle>
+
+    <mat-card-subtitle>Initial Subscription Date:{{session.createDate|date}}</mat-card-subtitle>
+    <div *ngIf="session.purchaseData.purchaseType==='subscription'">
+      <app-subscription-detail [stripeSubscriptionId]="session.stripeSubscriptionId"></app-subscription-detail>
+    </div>
+
     <div fxLayout="row" fxLayoutAlign="space-around">
       <div fxFlex="0 0 auto">{{session.product}}</div>
       <div fxFlex="0 0 auto">{{session.purchaseData.purchaseType}}</div>
       <div fxFlex="0 0 auto">{{session.stripeSubscriptionId}}</div>
     </div>
+
+    <app-payment-history [user_Id]="" [subscriptionId]="session.stripeSubscriptionId"></app-payment-history>
     <pre>{{session|json:'pretty'}}</pre>
   </mat-card>
 </div>

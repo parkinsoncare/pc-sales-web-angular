@@ -40,6 +40,11 @@ import { SubscriptionHistoryComponent } from './components/payments/subscription
 import { StripeSessionComponent } from './components/payments/stripe-session/stripe-session.component';
 import { DemoRestCallComponent } from './components/demo-rest-call/demo-rest-call.component';
 import { Header2Component } from './components/header2/header2.component';
+import { SubscriptionDetailComponent } from './components/payments/subscription-detail/subscription-detail.component';
+import { PlanDetailComponent } from './components/payments/plan-detail/plan-detail.component';
+import { ProductDetailComponent } from './components/payments/product-detail/product-detail.component';
+import { CustomerDetailComponent } from './components/payments/customer-detail/customer-detail.component';
+import { InvoiceHistoryComponent } from './components/payments/invoice-history/invoice-history.component';
 
 
 // AoT requires an exported function for factories
@@ -75,6 +80,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     StripeSessionComponent,
     DemoRestCallComponent,
     Header2Component,
+    SubscriptionDetailComponent,
+    PlanDetailComponent,
+    ProductDetailComponent,
+    CustomerDetailComponent,
+    InvoiceHistoryComponent,
   ],
   imports: [
     BrowserModule,

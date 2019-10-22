@@ -104,6 +104,13 @@ export class SignupComponent implements OnInit {
           purchaseData: environment.stripe.purchaseableItems[this.productFormGroup.value.product]
         };
 
+        if (user[environment.auth0.namespace + 'app_metadata']) {
+          const appMetadata = user[environment.auth0.namespace + 'app_metadata'];
+          if (appMetadata.stripe_customer_ids && appMetadata.stripe_customer_ids.length > 0) {
+            payment.stripe_customer_id = appMetadata.stripe_customer_ids[0];
+          }
+        }
+
         this.stripe.createSession(payment)
           .subscribe(stripeSession => {
 

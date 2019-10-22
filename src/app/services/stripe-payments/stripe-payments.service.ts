@@ -58,4 +58,16 @@ export class StripePaymentsService {
   getCustomerById(params: any): Observable < any > {
     return this.http.post(environment.stripe.stripeRestServiceUrl + '/getCustomerById/', params);
   }
+
+  getSubscriptionsByCustomerId(params: any): Observable < any > {
+    return this.http.post(environment.stripe.stripeRestServiceUrl + '/getSubscriptionsByCustomerId/', params);
+  }
+
+  getInvoiceList(params: any): Observable < any > {
+    return this.http.post(environment.stripe.stripeRestServiceUrl + '/getInvoiceList/', params);
+  }
+
+  cancelSubscription(params: any): Observable < any > {
+    return this.http.post(environment.stripe.stripeRestServiceUrl + '/cancelSubscription/', params);
+  }
 }

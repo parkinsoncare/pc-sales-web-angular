@@ -135,14 +135,26 @@
 
         <mat-card>
           <mat-card-subtitle>Payment Sessions History</mat-card-subtitle>
-          <app-stripe-session [user_Id]="selectedUser.user_id"></app-stripe-session>
+          <div *ngIf="selectedUser.app_metadata">
+            <div *ngIf="selectedUser.app_metadata.stripe_customer_ids">
+              <div *ngFor="let stripeCustomerId of selectedUser.app_metadata.stripe_customer_ids">
+                <app-customer-detail [stripeCustomerId]="stripeCustomerId"></app-customer-detail>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="!selectedUser.app_metadata || !selectedUser.app_metadata.stripe_customer_ids">
+            No purchases made
+          </div>
         </mat-card>
       </mat-card>
     </mat-card>
 
+    <!--
     <mat-card *ngIf="selectedUser">
+      <mat-card-title>Selected user json</mat-card-title>
       <pre>{{selectedUser|json:"pretty"}}</pre>
     </mat-card>
+    -->
   </div>
 </div>
 

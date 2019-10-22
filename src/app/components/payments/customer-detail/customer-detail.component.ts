@@ -3,13 +3,13 @@ import {StripePaymentsService} from '../../../services/stripe-payments/stripe-pa
 import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
-  selector: 'app-subscription-history',
-  templateUrl: './subscription-history.component.html',
-  styleUrls: ['./subscription-history.component.scss']
+  selector: 'app-customer-detail',
+  templateUrl: './customer-detail.component.html',
+  styleUrls: ['./customer-detail.component.scss']
 })
-export class SubscriptionHistoryComponent implements OnInit {
+export class CustomerDetailComponent implements OnInit {
   @Input() stripeCustomerId;
-  stripeSubscriptions: any;
+  stripeCustomer: any;
 
   constructor(private stripe: StripePaymentsService,
               private snackMessage: MatSnackBar) { }
@@ -19,14 +19,13 @@ export class SubscriptionHistoryComponent implements OnInit {
   }
 
   loadData() {
-    this.stripe.getSubscriptionsByCustomerId({
+    this.stripe.getCustomerById({
       stripeCustomerId: this.stripeCustomerId
     })
       .subscribe( r => {
-        this.stripeSubscriptions = r;
+        this.stripeCustomer = r;
       }, e => {
-        this.snackMessage.open('Error getting subscriptions', 'x',{verticalPosition: 'top'});
+        this.snackMessage.open('Error getting customer', 'x',{verticalPosition: 'top'});
       });
   }
-
 }

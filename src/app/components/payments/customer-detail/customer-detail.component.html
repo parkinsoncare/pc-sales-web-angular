@@ -1,0 +1,21 @@
+<p>customer-detail works!</p>
+<span *ngIf="stripeCustomer">
+
+  <mat-tab-group>
+    <mat-tab [label]="'Payments'">
+      <app-invoice-history [stripeCustomerId]="stripeCustomer.id"></app-invoice-history>
+    </mat-tab>
+    <mat-tab [label]="'Subscriptions'">
+      <app-subscription-history [stripeCustomerId]="stripeCustomer.id"></app-subscription-history>
+    </mat-tab>
+  </mat-tab-group>
+
+
+  <!--
+  <mat-card>
+    <mat-card-title>stripeCustomer|json</mat-card-title>
+    <pre>{{stripeCustomer|json}}</pre>
+  </mat-card>
+  -->
+
+</span>

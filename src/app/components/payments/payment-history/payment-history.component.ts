@@ -14,7 +14,7 @@ export class PaymentHistoryComponent implements OnInit {
   payments: any[];
 
   itemsFound: number = 0;
-  pageSize: number = 2;
+  pageSize: number = 10;
   pageIndex: number = 0;
   pageSizeOptions: number [] = [2, 5, 10, 25];
 
@@ -34,6 +34,7 @@ export class PaymentHistoryComponent implements OnInit {
         this.payments = r.records;
         this.itemsFound = r.total;
       }, e => {
+        console.log(e);
         this.snackMessage.open('Error getting payment history', 'x',{verticalPosition: 'top'});
       });
   }
