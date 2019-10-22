@@ -19,7 +19,6 @@ import { StripeThanksComponent } from './private/subscribe/stripe-thanks/stripe-
 import { StripeCancelComponent } from './private/subscribe/stripe-cancel/stripe-cancel.component';
 import { AccountComponent } from './private/account/account.component';
 import { Auth0RolesComponent } from './admin/auth0-roles/auth0-roles.component';
-import {TestPageComponent} from './private/test-page/test-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/public/home', pathMatch: 'full' },
@@ -41,8 +40,7 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'signup', component: SignupComponent },
       { path: 'signupthanks', component: StripeThanksComponent },
-      { path: 'signupcancel', component: StripeCancelComponent },
-      { path: 'testpage', component: TestPageComponent }
+      { path: 'signupcancel', component: StripeCancelComponent }
     ]
   },
   {
