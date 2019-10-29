@@ -28,8 +28,6 @@ import { AdminRootComponent } from './admin/admin-root/admin-root.component';
 import { LoginErrorComponent } from './public/login-error/login-error.component';
 import { Auth0RolesComponent } from './admin/auth0-roles/auth0-roles.component';
 
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SignupComponent } from './private/subscribe/signup/signup.component';
 import { StripeThanksComponent } from './private/subscribe/stripe-thanks/stripe-thanks.component';
 import { StripeCancelComponent } from './private/subscribe/stripe-cancel/stripe-cancel.component';
