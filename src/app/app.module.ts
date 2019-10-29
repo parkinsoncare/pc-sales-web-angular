@@ -44,12 +44,6 @@ import { ProductDetailComponent } from './components/payments/product-detail/pro
 import { CustomerDetailComponent } from './components/payments/customer-detail/customer-detail.component';
 import { InvoiceHistoryComponent } from './components/payments/invoice-history/invoice-history.component';
 
-
-// AoT requires an exported function for factories
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
-}
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -93,14 +87,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpClientModule,
     NgbModule,
     FontAwesomeModule,
-    FormsModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    })
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

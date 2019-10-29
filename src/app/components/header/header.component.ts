@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
-import { MenuToggleBroadcastService } from '../../services/menu-toggle-broadcast/menu-toggle-broadcast.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from './../../../environments/environment';
 import { faUser, faPowerOff, faLanguage, faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { SidenavBroadcastService } from '../../services/sidenav-broadcast/sidenav-broadcast.service';
 
 @Component({
   selector: 'app-header',
@@ -32,13 +32,13 @@ export class HeaderComponent implements OnInit {
   constructor( private breakpointObserver: BreakpointObserver,
                public auth: AuthService,
                public router: Router,
-               private menuBroadcast: MenuToggleBroadcastService) { }
+               private sidenavBroadcaster: SidenavBroadcastService) { }
 
   ngOnInit() {
   }
 
   toggleMenus() {
-    this.menuBroadcast.toggleMenu();
+    this.sidenavBroadcaster.toggleMenu();
   }
 
 }

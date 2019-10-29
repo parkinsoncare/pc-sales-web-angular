@@ -4,9 +4,11 @@ import { Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class MenuToggleBroadcastService {
+export class SidenavBroadcastService {
   private menuToggledSource = new Subject<boolean>();
+  private textToggledSource = new Subject<boolean>();
   menuToggled$ = this.menuToggledSource.asObservable();
+  textToggled$ = this.textToggledSource.asObservable();
   public showTextDescriptions = true;
 
   constructor() { }
@@ -17,6 +19,6 @@ export class MenuToggleBroadcastService {
 
   toggleTextDescriptions() {
     this.showTextDescriptions = !this.showTextDescriptions;
-    this.menuToggledSource.next(true);
+    this.textToggledSource.next(true);
   }
 }

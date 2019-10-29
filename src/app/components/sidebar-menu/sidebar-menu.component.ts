@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
-import { MenuToggleBroadcastService } from '../../services/menu-toggle-broadcast/menu-toggle-broadcast.service';
+import { SidenavBroadcastService } from '../../services/sidenav-broadcast/sidenav-broadcast.service';
 
 @Component({
   selector: 'app-sidebar-menu',
@@ -11,13 +11,13 @@ export class SidebarMenuComponent implements OnInit {
   @Input() type: string;
 
   constructor(public auth: AuthService,
-              public sideMenuState: MenuToggleBroadcastService) { }
+              public sidenavBroadcaster: SidenavBroadcastService) { }
 
   ngOnInit() {
   }
 
   toggleText() {
-    this.sideMenuState.toggleTextDescriptions();
+    this.sidenavBroadcaster.toggleTextDescriptions();
   }
 
 }
