@@ -1,3 +1,14 @@
+#page-header {
+  margin-top: 50px;
+}
+#page-subtitle {
+  margin-bottom: 75px;
+}
+
+.page-section {
+  margin-bottom: 75px;
+}
+
 .idle {
    background-color: lightgrey;
  }
@@ -36,3 +47,81 @@ pre-remove {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
+
+
+#landinganimation {
+  width: 100%;
+}
+
+.levelSmallIntro {
+  font-size: 20px;
+  font-weight: 500;
+  /*
+  margin-left: 20%;
+  margin-top: 20%;
+  */
+}
+
+.noImageSmallIntro {
+  margin-top: 0% !important;
+}
+
+.levelLargeHeader {
+  font-size: 55px;
+  font-weight: 700;
+  margin-bottom: 5%;
+  /*
+  margin-left: 20%;
+
+   */
+}
+
+.levelParagraph {
+  font-size: 20px;
+  font-weight: 500;
+  /*
+  margin-left: 20%;
+
+   */
+}
+
+.levelImg {
+  height: 300px;
+}
+
+.imageLeft {
+  margin-left: 20%;
+}
+
+.lightColor {
+  background-color: antiquewhite;
+}
+
+.levelPng {
+  width: 300px;
+}
+
+.bottomItemsLeft {
+  background-color: lightgreen;
+}
+
+.bottomItemsRight {
+  background-color: beige;
+}
+
+.bottomItemsHeader {
+  font-size: 40px;
+  font-weight: 700;
+  color: black;
+  text-align: center;
+  margin-top: 15px
+}
+
+.bottomItemsBody {
+  font-size: 20px;
+  color: black;
+  margin-left: 14%;
+  margin-right: 10%;
+  margin-bottom: 15px
+}
+

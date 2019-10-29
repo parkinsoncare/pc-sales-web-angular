@@ -1,0 +1,31 @@
+<mat-toolbar class="pcToolbar" color="secondary">
+  <div fxLayout="row" class="full-width" fxLayoutAlign="space-between center">
+    <div id="left-group" fxFlex="0 0 auto">
+      <div fxLayout="row" fxLayoutAlign="start center">
+
+        <a fxFlex="0 0 auto" href="https://www.parkinsoncare.com/"><img class="logo" ngClass.lt-md="logoltsm" src="./../assets/public/images/LogoLanding.jpeg"></a>
+
+        <span fxFlex="0 0 auto" id="dev-warning" *ngIf="!env.production">Env: {{env.env}}</span>
+
+        <a fxFlex="0 0 auto" class="toolbar-link" id="toolbar-home" href="https://www.parkinsoncare.com/">HOME</a>
+        <a fxFlex="0 0 auto" class="toolbar-link" id="toolbar-cosa-fa" href="https://www.parkinsoncare.com/s/login/?startURL=%2Fs%2F&ec=302#cosafa_section">COSA FA</a>
+        <a fxFlex="0 0 auto" class="toolbar-link" id="toolbar-come" href="https://www.parkinsoncare.com/s/login/?startURL=%2Fs%2F&ec=302#come_section">COM'È</a>
+        <a fxFlex="0 0 auto" class="toolbar-link" id="toolbar-contatti" href="https://www.parkinsoncare.com/s/contatti">CONTATTI</a>
+        <a fxFlex="0 0 auto" class="toolbar-link" id="toolbar-neuro" href="https://www.parkinsoncare.com/s/neurologist">SEI UN NEUROLOGO?</a>
+        <a fxFlex="0 0 auto" class="toolbar-link" id="toolbar-accedi" href="https://www.parkinsoncare.com/">ACCEDI</a>
+
+      </div>
+    </div>
+
+    <div id="right-group" fxFlex="0 0 auto">
+      <div fxLayout="row" fxLayoutAlign="start center">
+
+
+
+      </div>
+    </div>
+  </div>
+
+</mat-toolbar>
+
+

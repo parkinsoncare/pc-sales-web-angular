@@ -2,10 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ActivatedRoute, Router, UrlSegment, NavigationEnd } from '@angular/router';
-import { AuthService } from './services/auth/auth.service';
 import { environment } from './../environments/environment';
 import { GTagManagerService } from './services/g-tag-manager/g-tag-manager.service';
-import { SidenavBroadcastService } from './services/sidenav-broadcast/sidenav-broadcast.service';
 
 @Component({
   selector: 'app-root',
@@ -17,11 +15,9 @@ export class AppComponent implements OnInit {
 
   url: string;
 
-  constructor(public auth: AuthService,
+  constructor(
               private route: ActivatedRoute,
               public router: Router,
-              private menuBroadcast: SidenavBroadcastService,
-              //gtag: Gtag,
               private gTagManager: GTagManagerService) {
     // moved to OnInit this.auth.handleAuthentication();
 
@@ -38,11 +34,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.auth.localAuthSetup();
     this.route.url.subscribe(url => { this.url = url.join(); }, e => { this.url = ''; } );
   }
 
-  toggleMenus() {
-    this.menuBroadcast.toggleMenu();
-  }
 }

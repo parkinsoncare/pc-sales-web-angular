@@ -1,295 +1,87 @@
 <div fxLayout="row" fxLayoutAlign="space-around">
-  <div fxFlex="50%" fxFlex.lt-sm="80%">
-    <mat-card class="full-width-remove api-cards-remove">
-      <mat-card-title i18n="public home title|An introduction title for the public home@@public home title">Public Home Page</mat-card-title>
-      <mat-card-subtitle>The Mean-asStack: An opinionated stack for web and mobile apps</mat-card-subtitle>
+  <div fxFlex="65%" fxFlex.lt-sm="80%">
+    <div class="full-width-remove api-cards-remove">
+      <h2 id="page-header">Iscriviti a ParkinsonCare</h2>
+      <h3 id="page-subtitle">E tu e tuoi famigliari saranno accompagnato nel gestire tue difficultà</h3>
 
-      <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-between">
-        <div fxFlex="22%" fxFlexAlign="center"><img class="comp-logo" src="/assets/public/opstack/mongodb/mongodb.png"/></div>
-        <div fxFlex="22%" fxFlexAlign="center"><img class="comp-logo" src="/assets/public/opstack/express/express-facebook-share.png"/></div>
-        <div fxFlex="22%" fxFlexAlign="center"><img class="comp-logo" src="/assets/public/opstack/angular/angular.png"/></div>
-        <div fxFlex="22%" fxFlexAlign="center"><img class="comp-logo" src="/assets/public/opstack/nodejs/nodejs-new-pantone-black.png"/></div>
+      <div class="page-section" fxLayout="row">
+        <div fxFlex="65%">
+          <div class="levelSmallIntro">Chiamaci a</div>
+
+          <div class="levelLargeHeader">02-398-209458</div>
+
+          <div class="levelParagraph">
+            Per parlare con nostro personale, specialisti della malattia di Parkinson.
+          </div>
+          <div class="levelParagraph">
+            Vi spiegheremo come funziona ParkinsonCare e come possiamo esservi di aiuto.
+          </div>
+        </div>
+        <div fxFlex="25%">
+          <img class="levelImg" src="/assets/public/images/Nurse-J.png" />
+        </div>
       </div>
 
-      <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around">
-        <div fxFlex="25%" fxFlexAlign="center"><img class="comp-logo" src="/assets/public/opstack/auth0/Auth0-Logo-Light-BG.png"/></div>
-        <div fxFlex="25%" fxFlexAlign="center"><img class="comp-logo" src="/assets/public/opstack/stripe/Stripe-logo-slate-lg.png"/></div>
+      <div class="page-section" fxLayout="row">
+        <div fxFlex="25%">
+          <img class="levelImg" src="/assets/public/images/Nurse-T.png" />
+        </div>
+
+        <div fxFlex="65%">
+          <div class="levelSmallIntro">Scriverci qui e</div>
+          <div class="levelLargeHeader">Vi chiamiamo noi</div>
+          <form [formGroup]="contactUsForm" novalidate (ngSubmit)="onSubmit()" class="sales-form">
+
+            <div class="levelParagraph-remove" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-around">
+              <div fxFlex="30%">
+                <mat-form-field appearance="outline">
+                  <mat-label>Nome</mat-label>
+                  <input matInput placeholder="Nome" formControlName="name">
+                  <mat-hint>Nome e Cognome</mat-hint>
+                </mat-form-field>
+              </div>
+              <div fxFlex="30%">
+                <mat-form-field appearance="outline">
+                  <mat-label>Numero di Telefono</mat-label>
+                  <input matInput placeholder="Numero di Telefono" formControlName="telNumber">
+                  <mat-hint>Fisso o mobile</mat-hint>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="levelParagraph-remove" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-around">
+              <div fxFlex="30%">
+                <mat-form-field appearance="outline">
+                  <mat-label>Email</mat-label>
+                  <input matInput placeholder="Email" formControlName="email"/>
+                  <mat-hint>Per essere contattao per email</mat-hint>
+                </mat-form-field>
+              </div>
+              <div fxFlex="30%">
+                <!--<mat-form-field appearance="outline">-->
+                <mat-checkbox formControlName="acceptedTOC">Consento all <a href="" target="_blank">privacy</a></mat-checkbox>
+                <!--</mat-form-field>-->
+              </div>
+            </div>
+
+            <div class="levelParagraph-remove" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-around">
+              <div fxFlex="30%">
+              </div>
+              <div fxFlex="30%">
+                <button mat-raised-button color="primary" [disabled]="!contactUsForm.valid">Invia</button>
+              </div>
+            </div>
+
+          </form>
+        </div>
       </div>
-    </mat-card>
+
+
+    </div>
   </div>
 </div>
 
-<div fxLayout="row" fxLayoutAlign="center">
-  <button id="dashboard-button" fxFlex="0 0 auto" mat-raised-button color="primary" (click)="loadAll()">Reload All Rest Calls</button>
-</div>
-
-<div fxLayout="row wrap" fxLayoutAlign="space-around" fxLayout.lt-sm="column">
-
-  <div fxFlex="35%" fxFlex.lt-sm="80%">
-    <mat-card class="full-width-remove " >
-      <mat-card-title>
-        <div fxLayout="row" fxLayoutAlign="space-between">
-          <div fxFlex="0 0 auto" >
-            1: Public Get Test
-          </div>
-          <div fxFlex="0 0 auto" >
-            <button mat-raised-button color="primary" (click)="publicGet()">Try me!</button>
-          </div>
-        </div>
-      </mat-card-title>
-
-      <mat-card-subtitle>
-        <div fxLayout="row" fxLayoutAlign="start">
-          <div fxFlex="0 0 auto">
-            Any user can call this endpoint.
-          </div>
-        </div>
-      </mat-card-subtitle>
-
-      <div *ngIf="publicGetResult && publicGetResult.status !== 'loading'" [ngClass]="getClassFromStatus(publicGetResult)">
-        <pre class="results-display">{{ publicGetResult | json }}</pre>
-      </div>
-      <div *ngIf="publicGetResult.status === 'loading'" [ngClass]="getClassFromStatus(publicGetResult)">
-        <div class="results-display" fxLayout="row" fxLayoutAlign="center center"><div fxFlex="0 0 auto"><mat-spinner></mat-spinner></div></div>
-      </div>
-
-      <div fxLayout="row" fxLayoutAlign="center">
-        <div fxFlex="0 0 auto" *ngIf="publicGetResult.status === 'success'">No token required</div>
-      </div>
-
-      <div>Test this endpoint from Postman:</div>
-      <div>GET {{getDisplayURL(env.restServiceURL + '/public')}}</div>
-      <div>The endpoint is public and should respond with JSON.</div>
-    </mat-card>
-  </div>
-
-  <div fxFlex="35%" fxFlex.lt-sm="80%">
-    <mat-card class="full-width-remove " >
-      <mat-card-title>
-        <div fxLayout="row" fxLayoutAlign="space-between">
-          <div fxFlex="0 0 auto" >
-            2: Public POST Test
-          </div>
-          <div fxFlex="0 0 auto" >
-            <button mat-raised-button color="primary" (click)="publicPost()">Try me!</button>
-          </div>
-        </div>
-      </mat-card-title>
 
 
-      <mat-card-subtitle>
-        <div fxLayout="row" fxLayoutAlign="start">
-          <div fxFlex="0 0 auto">
-            Any user can call this endpoint.
-          </div>
-        </div>
-        <div fxLayout="row" fxLayoutAlign="start">
-          <div fxFlex="0 0 auto">
-            <mat-form-field>
-              <input matInput placeholder="Sample data" [(ngModel)]="publicPostMessage"/>
-            </mat-form-field>
-          </div>
-        </div>
-      </mat-card-subtitle>
 
-      <div *ngIf="publicPostResult && publicPostResult.status !== 'loading'" [ngClass]="getClassFromStatus(publicPostResult)">
-        <pre class="results-display">{{ publicPostResult |json }}</pre>
-      </div>
-      <div *ngIf="publicPostResult.status === 'loading'" [ngClass]="getClassFromStatus(publicPostResult)">
-        <div class="results-display" fxLayout="row" fxLayoutAlign="center center"><div fxFlex="0 0 auto"><mat-spinner></mat-spinner></div></div>
-      </div>
 
-      <div fxLayout="row" fxLayoutAlign="center">
-        <div fxFlex="0 0 auto" *ngIf="publicPostResult.status === 'success'">No token required</div>
-      </div>
-
-      <div>Test this endpoint from Postman:</div>
-      <div>POST {{getDisplayURL(env.restServiceURL + '/public')}}</div>
-      <div>The endpoint is public and should echo your JSON body.</div>
-    </mat-card>
-  </div>
-
-  <div fxFlex="35%" fxFlex.lt-sm="80%">
-    <mat-card class="full-width-remove " >
-      <mat-card-title>
-
-        <div fxLayout="row" fxLayoutAlign="space-between">
-          <div fxFlex="0 0 auto" >
-            3: Private Get Test
-          </div>
-          <div fxFlex="0 0 auto" >
-            <button mat-raised-button color="primary" (click)="privateGet()">Try me!</button>
-          </div>
-        </div>
-
-      </mat-card-title>
-
-      <mat-card-subtitle>
-        <div fxLayout="row" fxLayoutAlign="start">
-          <div fxFlex="0 0 auto">
-            Only authenticated users can call this endpoint.
-          </div>
-        </div>
-      </mat-card-subtitle>
-
-      <div *ngIf="privateGetResult && privateGetResult.status !== 'loading'" [ngClass]="getClassFromStatus(privateGetResult)">
-        <pre class="results-display">{{ privateGetResult | json }}</pre>
-      </div>
-      <div *ngIf="privateGetResult.status === 'loading'" [ngClass]="getClassFromStatus(privateGetResult)">
-        <div class="results-display" fxLayout="row" fxLayoutAlign="center center"><div fxFlex="0 0 auto"><mat-spinner></mat-spinner></div></div>
-      </div>
-
-      <div fxLayout="row" fxLayoutAlign="center">
-        <div fxFlex="0 0 auto" *ngIf="privateGetResult.status === 'success'">Valid token provided</div>
-        <div fxFlex="0 0 auto" *ngIf="parseInt(privateGetResult.status) === 401">No token provided</div>
-      </div>
-
-      <div>Test this endpoint from Postman:</div>
-      <div>GET {{getDisplayURL(env.restServiceURL + '/private')}}</div>
-      <div>The endpoint is private and will reject requests without a valid JWT token.</div>
-    </mat-card>
-  </div>
-
-  <div fxFlex="35%" fxFlex.lt-sm="80%">
-    <mat-card class="full-width-remove " >
-      <mat-card-title>
-
-        <div fxLayout="row" fxLayoutAlign="space-between">
-          <div fxFlex="0 0 auto" >
-            4: Private POST Test
-          </div>
-          <div fxFlex="0 0 auto" >
-            <button mat-raised-button color="primary" (click)="privatePost()">Try me!</button>
-          </div>
-        </div>
-
-      </mat-card-title>
-
-      <mat-card-subtitle>
-        <div fxLayout="row" fxLayoutAlign="start">
-          <div fxFlex="0 0 auto">
-            Only authentedated users can call this endpoint.
-          </div>
-        </div>
-        <div fxLayout="row" fxLayoutAlign="start">
-          <div fxFlex="0 0 auto">
-            <mat-form-field>
-              <input matInput placeholder="Sample data" [(ngModel)]="privatePostMessage"/>
-            </mat-form-field>
-          </div>
-        </div>
-      </mat-card-subtitle>
-
-      <div *ngIf="privatePostResult && privatePostResult.status !== 'loading'" [ngClass]="getClassFromStatus(privatePostResult)">
-        <pre class="results-display">{{ privatePostResult | json }}</pre>
-      </div>
-      <div *ngIf="privatePostResult.status === 'loading'" [ngClass]="getClassFromStatus(privatePostResult)">
-        <div class="results-display" fxLayout="row" fxLayoutAlign="center center"><div fxFlex="0 0 auto"><mat-spinner></mat-spinner></div></div>
-      </div>
-
-      <div fxLayout="row" fxLayoutAlign="center">
-        <div fxFlex="0 0 auto" *ngIf="privatePostResult.status === 'success'">Valid token provided</div>
-        <div fxFlex="0 0 auto" *ngIf="parseInt(privatePostResult.status) === 401">No token provided</div>
-      </div>
-
-      <div>Test this endpoint from Postman:</div>
-      <div>POST {{getDisplayURL(env.restServiceURL + '/private')}}</div>
-      <div>The endpoint is private and will reject requests without a valid JWT token.</div>
-    </mat-card>
-  </div>
-
-  <div fxFlex="35%" fxFlex.lt-sm="80%">
-    <mat-card class="full-width-remove " >
-      <mat-card-title>
-
-        <div fxLayout="row" fxLayoutAlign="space-between">
-          <div fxFlex="0 0 auto" >
-            5: Permissioned POST Test
-          </div>
-          <div fxFlex="0 0 auto" >
-            <button mat-raised-button color="primary" (click)="privateRequirePostPermission()">Try me!</button>
-          </div>
-        </div>
-
-      </mat-card-title>
-      <mat-card-subtitle>
-        <div fxLayout="row" fxLayoutAlign="start">
-          <div fxFlex="0 0 auto">
-            Only authorized users (Admin role) can call this endpoint.
-          </div>
-        </div>
-        <div fxLayout="row" fxLayoutAlign="start">
-          <div fxFlex="0 0 auto">
-            <mat-form-field>
-              <input matInput placeholder="Sample data" [(ngModel)]="permissionedAdminPostMessage"/>
-            </mat-form-field>
-          </div>
-        </div>
-      </mat-card-subtitle>
-      <div *ngIf="permissionedAdminPostResult && permissionedAdminPostResult.status !== 'loading'" [ngClass]="getClassFromStatus(permissionedAdminPostResult)">
-        <pre class="results-display">{{ permissionedAdminPostResult | json }}</pre>
-      </div>
-      <div *ngIf="permissionedAdminPostResult.status === 'loading'" [ngClass]="getClassFromStatus(permissionedAdminPostResult)">
-        <div class="results-display" fxLayout="row" fxLayoutAlign="center center"><div fxFlex="0 0 auto"><mat-spinner></mat-spinner></div></div>
-      </div>
-
-      <div fxLayout="row" fxLayoutAlign="center">
-        <div fxFlex="0 0 auto" *ngIf="permissionedAdminPostResult.status === 'success'">Valid token with valid permissions provided</div>
-        <div fxFlex="0 0 auto" *ngIf="parseInt(permissionedAdminPostResult.status) === 401">No token provided</div>
-        <div fxFlex="0 0 auto" *ngIf="parseInt(permissionedAdminPostResult.status) === 403">Valid token without permissions provided</div>
-      </div>
-
-      <div>Test this endpoint from Postman:</div>
-      <div>POST {{getDisplayURL(env.restServiceURL + '/private/')}}</div>
-      <div>The endpoint is private and will reject requests without a valid JWT token.</div>
-    </mat-card>
-  </div>
-
-  <div fxFlex="35%" fxFlex.lt-sm="80%">
-    <mat-card class="full-width-remove " >
-      <mat-card-title>
-
-        <div fxLayout="row" fxLayoutAlign="space-between">
-          <div fxFlex="0 0 auto" >
-            6: Never Permissioned POST Test
-          </div>
-          <div fxFlex="0 0 auto" >
-            <button mat-raised-button color="primary" (click)="privateNeverPermissionedPost()">Try me!</button>
-          </div>
-        </div>
-
-      </mat-card-title>
-      <mat-card-subtitle>
-        <div fxLayout="row" fxLayoutAlign="start">
-          <div fxFlex="0 0 auto">
-            Only authorized users can call this endpoint, no such roles have permission in this demo and the call will always fail.
-          </div>
-        </div>
-        <div fxLayout="row" fxLayoutAlign="start">
-          <div fxFlex="0 0 auto">
-            <mat-form-field>
-              <input matInput placeholder="Sample data" [(ngModel)]="permissionedNeverPostMessage"/>
-            </mat-form-field>
-          </div>
-        </div>
-      </mat-card-subtitle>
-
-      <div *ngIf="permissionedNeverPostResult && permissionedNeverPostResult.status !== 'loading'" [ngClass]="getClassFromStatus(permissionedNeverPostResult)">
-        <pre class="results-display">{{ permissionedNeverPostResult | json }}</pre>
-      </div>
-      <div *ngIf="permissionedNeverPostResult.status === 'loading'" [ngClass]="getClassFromStatus(permissionedNeverPostResult)">
-        <div class="results-display" fxLayout="row" fxLayoutAlign="center center"><div fxFlex="0 0 auto"><mat-spinner></mat-spinner></div></div>
-      </div>
-
-      <div fxLayout="row" fxLayoutAlign="center">
-        <div fxFlex="0 0 auto" *ngIf="permissionedNeverPostResult.status === 'success'">Valid token with valid permissions provided</div>
-        <div fxFlex="0 0 auto" *ngIf="parseInt(permissionedNeverPostResult.status) === 401">No token provided</div>
-        <div fxFlex="0 0 auto" *ngIf="parseInt(permissionedNeverPostResult.status) === 403">Valid token without permissions provided</div>
-      </div>
-
-      <div>Test this endpoint from Postman:</div>
-      <div>POST {{getDisplayURL(env.restServiceURL + '/private/')}}</div>
-      <div>The endpoint is private and will reject requests without a valid JWT token.</div>
-    </mat-card>
-  </div>
-</div>

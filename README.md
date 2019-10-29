@@ -14,10 +14,10 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-docker build -t opinionatedstack/web-angular:latest -f Dockerfile.prod .
-docker push opinionatedstack/web-angular:latest
+docker build -t parkinsoncare/pc-sales-web-angular:latest -f Dockerfile.prod .
+docker push parkinsoncare/pc-sales-web-angular:latest
 
-ng build --prod && docker build -t opinionatedstack/web-angular:latest -f Dockerfile.prod . && docker push opinionatedstack/web-angular:latest && say done
+ng build --prod && docker build -t parkinsoncare/pc-sales-web-angular:latest -f Dockerfile.prod . && docker push parkinsoncare/pc-sales-web-angular:latest && say done
 ---
 docker run -it --rm --name web -p 80:80 -p 443:443 opinionatedstack/web-angular
 

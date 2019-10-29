@@ -1,0 +1,115 @@
+
+
+.logo {
+  height: 51px;
+  margin-left: 140px;
+  margin-right: 50px;
+}
+
+.logoltsm {
+  height: 51px;
+  margin-left: 10px;
+}
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sideNavContainer {
+  height: 100vh;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.centerLayoutFlow {
+  float: left;
+}
+
+.menuText {
+  font-family: sans-serif GothamRegular;
+  font-weight: 700;
+  margin-top: 7px;
+  color: #16325c;
+  font-size: 18px;
+}
+
+.pcToolbar {
+  height: 100px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+.loginLogoutText {
+  margin-right: 150px;
+}
+
+.devWarning {
+  background-color: red;
+}
+
+.toolbar-link {
+  font-family: GothamBook;
+  font-size: 15px;
+  cursor: pointer;
+  color: #000000;
+  margin-left: 50px;
+}
+
+
+
+
+.loginLogoutText {
+  margin-right: 150px;
+}
+
+.loginLogoutTextltsm {
+  margin-left: 10px;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+#site-title {
+  font-size: 18px;
+}
+
+#dev-warning {
+  margin-left: 10px;
+  padding: 4px;
+  font-size: 14px;
+  color: red;
+  background-color: yellow;
+  border-radius:50% 50% !important;
+}
+
+.cfsToolbar {
+  background: linear-gradient(135deg, #0079bf, #5067c5);
+  color: white;
+}
+
+
+.nav-user-profile{
+  border-radius:50% 50%;
+  max-width:2.5rem;
+  height:auto;
+  box-shadow:0 0 4px 0 #b3bac7
+}
