@@ -2,12 +2,11 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { environment } from './../../../environments/environment';
 import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
-import { MenuToggleBroadcastService } from '../../services/menu-toggle-broadcast/menu-toggle-broadcast.service';
 import { Observable, Subscription } from 'rxjs';
-
 import { MediaChange, MediaObserver } from '@angular/flex-layout';
-import {Breakpoints} from '@angular/cdk/layout';
-import {map} from 'rxjs/operators';
+import { Breakpoints } from '@angular/cdk/layout';
+import { map } from 'rxjs/operators';
+import { SidenavBroadcastService } from '../../services/sidenav-broadcast/sidenav-broadcast.service';
 
 @Component({
   selector: 'app-header2',
@@ -21,7 +20,7 @@ export class Header2Component implements OnInit, OnDestroy {
 
   constructor(public auth: AuthService,
               public router: Router,
-              private menuBroadcast: MenuToggleBroadcastService,
+              private sidenavBroadcaster: SidenavBroadcastService,
               private mediaObserver: MediaObserver) {
 
     this.watcher = this.mediaObserver.media$.subscribe((change: MediaChange) => {
@@ -38,7 +37,7 @@ export class Header2Component implements OnInit, OnDestroy {
   }
 
   toggleMenus() {
-    this.menuBroadcast.toggleMenu();
+    this.sidenavBroadcaster.toggleMenu();
   }
 
 }

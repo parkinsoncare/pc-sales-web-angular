@@ -28,8 +28,6 @@ import { AdminRootComponent } from './admin/admin-root/admin-root.component';
 import { LoginErrorComponent } from './public/login-error/login-error.component';
 import { Auth0RolesComponent } from './admin/auth0-roles/auth0-roles.component';
 
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SignupComponent } from './private/subscribe/signup/signup.component';
 import { StripeThanksComponent } from './private/subscribe/stripe-thanks/stripe-thanks.component';
 import { StripeCancelComponent } from './private/subscribe/stripe-cancel/stripe-cancel.component';
@@ -45,12 +43,6 @@ import { PlanDetailComponent } from './components/payments/plan-detail/plan-deta
 import { ProductDetailComponent } from './components/payments/product-detail/product-detail.component';
 import { CustomerDetailComponent } from './components/payments/customer-detail/customer-detail.component';
 import { InvoiceHistoryComponent } from './components/payments/invoice-history/invoice-history.component';
-
-
-// AoT requires an exported function for factories
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
-}
 
 @NgModule({
   declarations: [
@@ -95,14 +87,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpClientModule,
     NgbModule,
     FontAwesomeModule,
-    FormsModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    })
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
