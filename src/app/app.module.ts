@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialIoModule } from './material-io.module';
 import { HomeComponent } from './public/home/home.component';
+import { SidebarMenuComponent } from './components/sidebar-menu/sidebar-menu.component';
 import { PublicRootComponent } from './public/public-root/public-root.component';
 import { ContactUsComponent } from './public/contact-us/contact-us.component';
 import { environment } from '../environments/environment';
@@ -17,7 +18,6 @@ import { FooterComponent } from './components/footer/footer.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-import { Header2Component } from './components/header2/header2.component';
 import { PcareHeaderComponent } from './components/pcare-header/pcare-header.component';
 
 @NgModule({
@@ -27,7 +27,7 @@ import { PcareHeaderComponent } from './components/pcare-header/pcare-header.com
     PublicRootComponent,
     ContactUsComponent,
     FooterComponent,
-    Header2Component,
+    SidebarMenuComponent,
     PcareHeaderComponent,
   ],
   imports: [

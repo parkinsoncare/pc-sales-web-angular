@@ -1,3 +1,17 @@
-<div>
-  <router-outlet></router-outlet>
-</div>
+<mat-sidenav-container class="sideNavContainer">
+
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="false"
+               mode="over"
+               [opened]="false">
+    <app-sidebar-menu [type]="'public'"></app-sidebar-menu>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content class="auth-container">
+
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+

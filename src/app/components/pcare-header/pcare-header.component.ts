@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {environment} from '../../../environments/environment';
+import { environment } from '../../../environments/environment';
+import { SidenavBroadcastService } from '../../services/sidenav-broadcast/sidenav-broadcast.service';
 
 @Component({
   selector: 'app-pcare-header',
@@ -9,9 +10,13 @@ import {environment} from '../../../environments/environment';
 export class PcareHeaderComponent implements OnInit {
 
   env: any = environment;
-  constructor() { }
+  constructor(private sidenavBroadcaster: SidenavBroadcastService) { }
 
   ngOnInit() {
+  }
+
+  toggleMenus() {
+    this.sidenavBroadcaster.toggleMenu();
   }
 
 }

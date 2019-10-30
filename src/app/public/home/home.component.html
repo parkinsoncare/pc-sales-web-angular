@@ -1,38 +1,81 @@
 <div fxLayout="row" fxLayoutAlign="space-around">
-  <div fxFlex="65%" fxFlex.lt-sm="80%">
+  <div fxFlex="65%" fxFlex.lt-md="85%" fxFlex.lt-sm="95%">
     <div class="full-width-remove api-cards-remove">
       <h2 id="page-header">Iscriviti a ParkinsonCare</h2>
-      <h3 id="page-subtitle">E tu e tuoi famigliari saranno accompagnato nel gestire tue difficultà</h3>
+      <h3 id="page-subtitle">Nostre infermiere accompagneranno tu e i tuoi famigliari nel gestire tue difficultà</h3>
 
-      <div class="page-section" fxLayout="row">
-        <div fxFlex="65%">
+      <div class="page-section" fxLayout="row" fxLayoutAlign="space-around">
+
+        <div fxFlex="30%" fxFlex.lt-sm="100%">
+          <div fxLayout="column" fxLayoutAlign="center center">
+            <a href="https://www.parkinsoncare.com/s/login/?startURL=%2Fs%2F&ec=302#home_section">
+            <img id="chi-siamo-button" class="three-img" [ngClass.lt-sm]="'three-img-sm'" src="/assets/public/images/phonelanding.png">
+            </a>
+          </div>
+          <div fxLayout="column" fxLayoutAlign="center center">
+            <a href="https://www.parkinsoncare.com/s/login/?startURL=%2Fs%2F&ec=302#home_section">
+            <div id="chi-siamo-txt" class="three-img-txt">Chi Siamo</div>
+            </a>
+          </div>
+        </div>
+        <div fxFlex="30%">
+          <div fxLayout="column" fxLayoutAlign="center center">
+            <a id="cosa-fa-button" href="https://www.parkinsoncare.com/s/login/?startURL=%2Fs%2F&ec=302#cosafa_section">
+            <img class="three-img" [ngClass.lt-sm]="'three-img-sm'" src="/assets/public/images/espertolanding.png">
+            </a>
+          </div>
+          <div fxLayout="column" fxLayoutAlign="center center">
+            <a id="cosa-fa-txt" href="https://www.parkinsoncare.com/s/login/?startURL=%2Fs%2F&ec=302#cosafa_section">
+            <div class="three-img-txt">Cosa Fa</div>
+            </a>
+          </div>
+        </div>
+        <div fxFlex="30%">
+          <div fxLayout="column" fxLayoutAlign="center center">
+            <a id="affidabile-button" href="https://www.parkinsoncare.com/s/login/?startURL=%2Fs%2F&ec=302#come_section">
+            <img class="three-img" [ngClass.lt-sm]="'three-img-sm'" src="/assets/public/images/affidabile.png">
+            </a>
+          </div>
+          <div fxLayout="column" fxLayoutAlign="center center">
+            <a href="https://www.parkinsoncare.com/s/login/?startURL=%2Fs%2F&ec=302#come_section">
+            <div id="affidabile-txt" class="three-img-txt">Com'è</div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <section id="nurse-j">
+
+      <div id="nurse-j-remove" class="page-section" fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="center center">
+
+        <div fxFlex="1 0 25%" fxFlexAlign="center center">
+          <img class="levelImg" src="/assets/public/images/Nurse-J.png" />
+        </div>
+
+        <div fxFlex="1 1 65%">
           <div class="levelSmallIntro">Chiamaci a</div>
 
-          <div class="levelLargeHeader">02-398-209458</div>
+          <div class="levelLargeHeader" [ngClass.lt-md]="'levelLargeHeader-md'" >02-2107-9073</div>
 
-          <div class="levelParagraph">
+          <div class="levelParagraph" id="first-phrase">
             Per parlare con nostro personale, specialisti della malattia di Parkinson.
           </div>
           <div class="levelParagraph">
             Vi spiegheremo come funziona ParkinsonCare e come possiamo esservi di aiuto.
           </div>
         </div>
-        <div fxFlex="25%">
-          <img class="levelImg" src="/assets/public/images/Nurse-J.png" />
-        </div>
       </div>
 
-      <div class="page-section" fxLayout="row">
-        <div fxFlex="25%">
-          <img class="levelImg" src="/assets/public/images/Nurse-T.png" />
-        </div>
+      </section>
+
+      <div class="page-section" fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="center center">
 
         <div fxFlex="65%">
-          <div class="levelSmallIntro">Scriverci qui e</div>
-          <div class="levelLargeHeader">Vi chiamiamo noi</div>
+          <div class="levelSmallIntro">Scriveci qui e</div>
+          <div class="levelLargeHeader" [ngClass.lt-md]="'levelLargeHeader-md'" >Vi chiamiamo noi</div>
           <form [formGroup]="contactUsForm" novalidate (ngSubmit)="onSubmit()" class="sales-form">
 
-            <div class="levelParagraph-remove" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-around">
+            <div class="levelParagraph-remove" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-around center">
               <div fxFlex="30%">
                 <mat-form-field appearance="outline">
                   <mat-label>Nome</mat-label>
@@ -49,7 +92,7 @@
               </div>
             </div>
 
-            <div class="levelParagraph-remove" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-around">
+            <div class="levelParagraph-remove" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-around center">
               <div fxFlex="30%">
                 <mat-form-field appearance="outline">
                   <mat-label>Email</mat-label>
@@ -57,23 +100,26 @@
                   <mat-hint>Per essere contattao per email</mat-hint>
                 </mat-form-field>
               </div>
-              <div fxFlex="30%">
-                <!--<mat-form-field appearance="outline">-->
-                <mat-checkbox formControlName="acceptedTOC">Consento all <a href="" target="_blank">privacy</a></mat-checkbox>
-                <!--</mat-form-field>-->
+              <div fxFlex="30%" fxFlexAlign="center center">
+                <mat-checkbox formControlName="acceptedTOC">Consento all <a id="privacy-link" href="https://www.parkinsoncare.com/s/informativaprivacy" target="_blank">privacy</a></mat-checkbox>
               </div>
             </div>
 
-            <div class="levelParagraph-remove" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-around">
+            <div class="levelParagraph-remove" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-around center">
               <div fxFlex="30%">
               </div>
               <div fxFlex="30%">
-                <button mat-raised-button color="primary" [disabled]="!contactUsForm.valid">Invia</button>
+                <button id="send-email" mat-raised-button color="primary" [disabled]="!contactUsForm.valid">Invia</button>
               </div>
             </div>
 
           </form>
         </div>
+
+        <div fxFlex="25%">
+          <img class="levelImg" src="/assets/public/images/Nurse-T.png" />
+        </div>
+
       </div>
 
 

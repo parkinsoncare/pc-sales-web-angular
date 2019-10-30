@@ -29,11 +29,10 @@ export class ContactUsComponent implements OnInit {
   onSubmit() {
     console.log('sales data: ', JSON.stringify(this.salesForm.value, null, 4));
     this.mailer.sendEmail( {body: this.salesForm.value})
-      .then( response => {
+      .subscribe( response => {
         alert('Your request was sent.');
         this.salesForm.reset();
-      })
-      .catch ( err => {
+      }, err => {
         alert ('There was an error in sending your request.');
       });
   }

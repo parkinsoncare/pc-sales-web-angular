@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from '../../services/rest/rest.service';
 import { environment } from './../../../environments/environment';
-import {Router} from '@angular/router';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {SendMailService} from '../../services/send-mail/send-mail.service';
+import { Router} from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SendMailService } from '../../services/send-mail/send-mail.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-home',
@@ -24,20 +25,13 @@ export class HomeComponent implements OnInit {
     acceptedTOC: ['', [Validators.requiredTrue]]
   };
 
-  salesFormEmptyData: any = {
-    name: ['', [Validators.required]],
-    company: [''],
-    email: ['', [Validators.email]],
-    telephone: ['', [Validators.required]],
-    country: [''],
-    comment: ['']
-  };
-
   contact = JSON.parse(JSON.stringify(this.emptyContact));
 
   constructor(private restService: RestService,
-              router: Router, private fb: FormBuilder, private mailer: SendMailService ) {
-    this.contactUsForm = this.fb.group(this.emptyContact);
+              router: Router, private fb: FormBuilder,
+              private mailer: SendMailService,
+              private snackMessage: MatSnackBar) {
+    this.setContact();
   }
 
   ngOnInit() {
@@ -48,11 +42,19 @@ export class HomeComponent implements OnInit {
   }
 
   setContact() {
-    this.contact = JSON.parse(JSON.stringify(this.emptyContact));
+    this.contactUsForm = this.fb.group(this.emptyContact)
   }
 
   onSubmit() {
-    alert('in onSubmit');
+    this.mailer.sendEmail(this.contactUsForm.value)
+      .subscribe ( r => {
+        this.snackMessage.open('Tuoi dati sono stati inviati a ParkinsonCare', 'x',{verticalPosition: 'top'});
+        // This results in non-optimal ui (required fields are red)
+        // Should be resolved before using
+        // this.contactUsForm.reset();
+      }, e => {
+        this.snackMessage.open('Errore inviando suoi dati', 'x',{verticalPosition: 'bottom'});
+      });
   }
 
 }
