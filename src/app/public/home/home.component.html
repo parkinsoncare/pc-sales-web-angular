@@ -1,129 +1,146 @@
 <div fxLayout="row" fxLayoutAlign="space-around">
   <div fxFlex="65%" fxFlex.lt-md="85%" fxFlex.lt-sm="95%">
-    <div class="full-width-remove api-cards-remove">
-      <h2 id="page-header">Iscriviti a ParkinsonCare</h2>
-      <h3 id="page-subtitle">Nostre infermiere accompagneranno tu e i tuoi famigliari nel gestire tue difficultà</h3>
-
-      <div class="page-section" fxLayout="row" fxLayoutAlign="space-around">
-
-        <div fxFlex="30%" fxFlex.lt-sm="100%">
-          <div fxLayout="column" fxLayoutAlign="center center">
-            <a href="https://www.parkinsoncare.com/s/login/?startURL=%2Fs%2F&ec=302#home_section">
-            <img id="chi-siamo-button" class="three-img" [ngClass.lt-sm]="'three-img-sm'" src="/assets/public/images/phonelanding.png">
-            </a>
-          </div>
-          <div fxLayout="column" fxLayoutAlign="center center">
-            <a href="https://www.parkinsoncare.com/s/login/?startURL=%2Fs%2F&ec=302#home_section">
-            <div id="chi-siamo-txt" class="three-img-txt">Chi Siamo</div>
-            </a>
-          </div>
-        </div>
-        <div fxFlex="30%">
-          <div fxLayout="column" fxLayoutAlign="center center">
-            <a id="cosa-fa-button" href="https://www.parkinsoncare.com/s/login/?startURL=%2Fs%2F&ec=302#cosafa_section">
-            <img class="three-img" [ngClass.lt-sm]="'three-img-sm'" src="/assets/public/images/espertolanding.png">
-            </a>
-          </div>
-          <div fxLayout="column" fxLayoutAlign="center center">
-            <a id="cosa-fa-txt" href="https://www.parkinsoncare.com/s/login/?startURL=%2Fs%2F&ec=302#cosafa_section">
-            <div class="three-img-txt">Cosa Fa</div>
-            </a>
-          </div>
-        </div>
-        <div fxFlex="30%">
-          <div fxLayout="column" fxLayoutAlign="center center">
-            <a id="affidabile-button" href="https://www.parkinsoncare.com/s/login/?startURL=%2Fs%2F&ec=302#come_section">
-            <img class="three-img" [ngClass.lt-sm]="'three-img-sm'" src="/assets/public/images/affidabile.png">
-            </a>
-          </div>
-          <div fxLayout="column" fxLayoutAlign="center center">
-            <a href="https://www.parkinsoncare.com/s/login/?startURL=%2Fs%2F&ec=302#come_section">
-            <div id="affidabile-txt" class="three-img-txt">Com'è</div>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <section id="nurse-j">
+    <div >
+      <h2 id="page-header">ParkinsonCare</h2>
+      <h3 id="page-subtitle">Il supporto di un esperto, quando ne hai bisogno</h3>
 
       <div id="nurse-j-remove" class="page-section" fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="center center">
 
         <div fxFlex="1 0 25%" fxFlexAlign="center center">
-          <img class="levelImg" src="/assets/public/images/Nurse-J.png" />
+          <img class="levelImg" src="/assets/public/images/nurse-1.png" />
         </div>
 
         <div fxFlex="1 1 65%">
-          <div class="levelSmallIntro">Chiamaci a</div>
-
-          <div class="levelLargeHeader" [ngClass.lt-md]="'levelLargeHeader-md'" >02-2107-9073</div>
 
           <div class="levelParagraph" id="first-phrase">
-            Per parlare con nostro personale, specialisti della malattia di Parkinson.
+            ParkinsonCare ti dedica due infermieri specializzati nella Malattia di Parkinson.
+            Il loro compito è diventare il tuo punto di riferimento nella vita quotidiana.
+            Per sapere sempre cosa fare e non essere mai solo ad affrontare la malattia.
           </div>
-          <div class="levelParagraph">
-            Vi spiegheremo come funziona ParkinsonCare e come possiamo esservi di aiuto.
+
+          <div fxLayout="row" fxLayoutAlign="start center" class="phone-us-row" fxLayoutGap="10px">
+            <div fxFlex="0 0 auto" id="phone-icon" >
+              <div fxLayout="row" fxLayoutAlign="center center" id="phone-icon-centerer"><mat-icon fxFlex="0 0 auto">phone</mat-icon></div>
+            </div>
+
+            <div fxFlex="1 0 auto" class="button-look">
+              <div fxLayout="row" fxLayoutAlign="center center"><div fxFlex="0 0 auto">+39 02 21079073</div></div>
+            </div>
           </div>
         </div>
       </div>
-
-      </section>
-
-      <div class="page-section" fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="center center">
-
-        <div fxFlex="65%">
-          <div class="levelSmallIntro">Scriveci qui e</div>
-          <div class="levelLargeHeader" [ngClass.lt-md]="'levelLargeHeader-md'" >Vi chiamiamo noi</div>
-          <form [formGroup]="contactUsForm" novalidate (ngSubmit)="onSubmit()" class="sales-form">
-
-            <div class="levelParagraph-remove" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-around center">
-              <div fxFlex="30%">
-                <mat-form-field appearance="outline">
-                  <mat-label>Nome</mat-label>
-                  <input matInput placeholder="Nome" formControlName="name">
-                  <mat-hint>Nome e Cognome</mat-hint>
-                </mat-form-field>
-              </div>
-              <div fxFlex="30%">
-                <mat-form-field appearance="outline">
-                  <mat-label>Numero di Telefono</mat-label>
-                  <input matInput placeholder="Numero di Telefono" formControlName="telNumber">
-                  <mat-hint>Fisso o mobile</mat-hint>
-                </mat-form-field>
-              </div>
-            </div>
-
-            <div class="levelParagraph-remove" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-around center">
-              <div fxFlex="30%">
-                <mat-form-field appearance="outline">
-                  <mat-label>Email</mat-label>
-                  <input matInput placeholder="Email" formControlName="email"/>
-                  <mat-hint>Per essere contattao per email</mat-hint>
-                </mat-form-field>
-              </div>
-              <div fxFlex="30%" fxFlexAlign="center center">
-                <mat-checkbox formControlName="acceptedTOC">Consento alla<br/> <a id="privacy-link" href="https://www.parkinsoncare.com/s/informativaprivacy" target="_blank">informativa della privacy</a></mat-checkbox>
-              </div>
-            </div>
-
-            <div class="levelParagraph-remove" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-around center">
-              <div fxFlex="30%">
-              </div>
-              <div fxFlex="30%">
-                <button id="send-email" mat-raised-button color="primary" [disabled]="!contactUsForm.valid">Invia</button>
-              </div>
-            </div>
-
-          </form>
-        </div>
-
-        <div fxFlex="25%">
-          <img class="levelImg" src="/assets/public/images/Nurse-T.png" />
-        </div>
-
-      </div>
-
 
     </div>
+  </div>
+</div>
+
+<section id="second-section">
+
+  <div fxLayout="row" fxLayoutAlign="space-around">
+    <div fxFlex="65%" fxFlex.lt-md="85%" fxFlex.lt-sm="95%">
+      <div >
+
+        <div class="page-section" fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="center center">
+
+          <div fxFlex="65%">
+            <!--<div class="levelSmallIntro">Oppure lasciaci i tuoi contatti se </div>-->
+            <div class="levelLargeHeader-md" [ngClass.lt-md]="'levelLargeHeader-md'" >
+              Oppure lasciaci i tuoi contatti se
+              preferisci essere chiamato</div>
+            <form [formGroup]="contactUsForm" novalidate (ngSubmit)="onSubmit()" class="sales-form">
+
+              <div class="contact-info" fxLayout="column" fxLayoutGap="10px" fxLayout.lt-md="column" fxLayoutAlign="">
+                <div fxFlex="0 1 100%">
+                  <mat-form-field class="text-input-class" appearance="outline">
+                    <mat-label>Nome</mat-label>
+                    <input matInput placeholder="Nome" formControlName="name">
+                    <mat-hint>Nome e Cognome</mat-hint>
+                  </mat-form-field>
+                </div>
+                <div fxFlex="0 1 100%">
+                  <mat-form-field class="text-input-class" appearance="outline">
+                    <mat-label>Numero di Telefono</mat-label>
+                    <input matInput placeholder="Numero di Telefono" formControlName="telNumber">
+                    <mat-hint>Fisso o mobile</mat-hint>
+                  </mat-form-field>
+                </div>
+                <div fxFlex="0 1 100%">
+                  <mat-form-field class="text-input-class" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Email" formControlName="email"/>
+                    <mat-hint>Per essere contattao per email</mat-hint>
+                  </mat-form-field>
+                </div>
+                <div fxFlex="0 1 100%" fxFlexAlign="center center">
+                  <mat-checkbox formControlName="acceptedTOC" id="privacy-checkbox">
+                    Acconsento al trattamento <br fxHide.gt-sm />dei miei dati personali*<br/>
+                    Consulta la <a id="privacy-link" href="https://www.parkinsoncare.com/s/informativaprivacy" target="_blank">privacy policy</a> <br fxHide.gt-sm />per maggiori informazioni
+                  </mat-checkbox>
+                </div>
+                <div fxFlex="0 1 50%" class="text-input-class" fxFlexAlign="center center">
+                  <button id="send-email" mat-raised-button color="primary" [disabled]="!contactUsForm.valid">Invia</button>
+                </div>
+              </div>
+
+            </form>
+          </div>
+
+          <div fxFlex="25%">
+            <img class="levelImg" src="/assets/public/images/Nurse-T.png" />
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+</section>
+
+<div fxLayout="row" fxLayoutAlign="space-around">
+  <div fxFlex="65%" fxFlex.lt-md="85%" fxFlex.lt-sm="95%">
+
+    <div class="page-section" fxLayout="row" fxLayoutAlign="space-around">
+
+      <div fxFlex="30%" fxFlex.lt-sm="100%">
+        <div fxLayout="column" fxLayoutAlign="center center">
+          <a href="/public/home#chi-siamo-section">
+            <img id="chi-siamo-button" class="three-img" [ngClass.lt-sm]="'three-img-sm'" src="/assets/public/images/phonelanding.png">
+          </a>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="center center">
+          <a href="/public/home#chi-siamo-section">
+            <div id="chi-siamo-txt" class="three-img-txt">Chi Siamo</div>
+          </a>
+        </div>
+      </div>
+      <div fxFlex="30%">
+        <div fxLayout="column" fxLayoutAlign="center center">
+          <a id="cosa-fa-button" href="https://www.parkinsoncare.com/s/login/?startURL=%2Fs%2F&ec=302#cosafa_section">
+            <img class="three-img" [ngClass.lt-sm]="'three-img-sm'" src="/assets/public/images/espertolanding.png">
+          </a>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="center center">
+          <a id="cosa-fa-txt" href="https://www.parkinsoncare.com/s/login/?startURL=%2Fs%2F&ec=302#cosafa_section">
+            <div class="three-img-txt">Cosa Fa</div>
+          </a>
+        </div>
+      </div>
+      <div fxFlex="30%">
+        <div fxLayout="column" fxLayoutAlign="center center">
+          <a id="affidabile-button" href="https://www.parkinsoncare.com/s/login/?startURL=%2Fs%2F&ec=302#come_section">
+            <img class="three-img" [ngClass.lt-sm]="'three-img-sm'" src="/assets/public/images/affidabile.png">
+          </a>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="center center">
+          <a href="https://www.parkinsoncare.com/s/login/?startURL=%2Fs%2F&ec=302#come_section">
+            <div id="affidabile-txt" class="three-img-txt">Com'è</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -131,3 +148,31 @@
 
 
 
+<section class="background-sections" >
+
+  <div fxLayout="row" fxLayoutAlign="space-around" id="chi-siamo-section">
+    <div fxFlex="65%" fxFlex.lt-md="85%" fxFlex.lt-sm="95%">
+      <div id="" class="page-section" fxLayout="row" fxLayout.lt-lg="column" fxLayoutAlign="center center">
+
+        <div fxFlex="1 0 25%" fxFlexAlign="center center">
+          <img class="levelImg" src="/assets/public/images/team.png" />
+        </div>
+
+        <div fxFlex="1 1 65%">
+          <div class="levelLargeHeader-md">Chi siamo</div>
+
+          <div class="levelParagraph" id="">
+            ParkinsonCare è il primo servizio di CareApt, la start up fondata da Zcube, il Research Venture di Zambon, nel 2018.
+            La nostra missione è di trasformare la cura delle malattie croniche in un’esperienza di relazione e attenzione alla persona.
+            <div>Direttore Sanitario – Dott.ssa Francesca Mancini</div>
+          <div>
+            <img src="/assets/public/care-apt.png">
+          </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
