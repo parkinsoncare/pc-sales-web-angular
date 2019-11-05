@@ -19,6 +19,11 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { PcareHeaderComponent } from './components/pcare-header/pcare-header.component';
+import { CosaFaComponent } from './components/home-components/cosa-fa/cosa-fa.component';
+import { ComEComponent } from './components/home-components/com-e/com-e.component';
+import { PcareIntroComponent } from './components/home-components/pcare-intro/pcare-intro.component';
+import { CallMeComponent } from './components/home-components/call-me/call-me.component';
+import { ChiSiamoComponent } from './components/home-components/chi-siamo/chi-siamo.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +34,11 @@ import { PcareHeaderComponent } from './components/pcare-header/pcare-header.com
     FooterComponent,
     SidebarMenuComponent,
     PcareHeaderComponent,
+    CosaFaComponent,
+    ComEComponent,
+    PcareIntroComponent,
+    CallMeComponent,
+    ChiSiamoComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { RestService } from '../../services/rest/rest.service';
-import { environment } from './../../../environments/environment';
-import { Router} from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { SendMailService } from '../../services/send-mail/send-mail.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { environment } from '../../../../environments/environment';
+import { RestService } from '../../../services/rest/rest.service';
+import { Router } from '@angular/router';
+import { SendMailService } from '../../../services/send-mail/send-mail.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-call-me',
+  templateUrl: './call-me.component.html',
+  styleUrls: ['./call-me.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class CallMeComponent implements OnInit {
 
   contactUsForm: FormGroup;
 
@@ -28,8 +28,7 @@ export class HomeComponent implements OnInit {
   contact = JSON.parse(JSON.stringify(this.emptyContact));
 
   constructor(private restService: RestService,
-              private router: Router,
-              private fb: FormBuilder,
+              router: Router, private fb: FormBuilder,
               private mailer: SendMailService,
               private snackMessage: MatSnackBar) {
     this.setContact();
@@ -56,12 +55,6 @@ export class HomeComponent implements OnInit {
       }, e => {
         this.snackMessage.open('Errore inviando suoi dati', 'x',{verticalPosition: 'bottom'});
       });
-  }
-
-  goToMain() {
-
-    window.location.href = 'https://www.parkinsoncare.com';
-    //this.router.navigate(['https://www.parkinsoncare.com']);
   }
 
 }

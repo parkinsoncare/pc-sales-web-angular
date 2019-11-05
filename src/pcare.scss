@@ -35,3 +35,58 @@ $pcare-app-theme: mat-light-theme($pcare-app-primary, $pcare-app-accent, $pcare-
   font-family:GothamBook;
   src:url('/assets/public/fonts/GothamBook');
 }
+
+.levelLargeHeader {
+  font-size: 55px;
+  font-weight: 700;
+  font-family: GothamBold;
+}
+
+.levelLargeHeader-md {
+  font-size: 35px;
+  font-weight: 700;
+  font-family: GothamBold;
+}
+
+.levelSmallIntro {
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom:20px;
+  font-family: GothamBook;
+}
+
+.noImageSmallIntro {
+  margin-top: 0% !important;
+}
+
+.levelParagraph {
+  font-size: 20px;
+  font-weight: 500;
+  font-family: GothamBook;
+}
+
+.levelImg {
+  width: 350px;
+  margin: 10px;
+  border-radius: 20px;
+}
+
+.three-img-txt {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: GothamBold;
+  color: #000000;
+}
+
+.section-title {
+  font-size: 35px;
+  font-family: GothamBold;
+}
+
+.section-title-sm {
+  font-size: 25px;
+  font-family: GothamBold;
+}
+

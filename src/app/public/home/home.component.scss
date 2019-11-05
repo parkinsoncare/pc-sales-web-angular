@@ -1,3 +1,12 @@
+section {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.mat-form-field-flex {
+  border-radius: 30px;
+}
+
 #page-header {
   margin-top: 50px;
 }
@@ -9,65 +18,9 @@
   background-color: #f4f5f7;
 }
 
-#send-email {
-  margin-bottom: 10px;
-}
-
-.button-look {
-  background-color: #59838C;
-  color: white;
-  border-radius: 20px;
-}
-
-.phone-us-row {
-  font-family: GothamBold;
-  font-size: 30px;
-}
-
-#phone-icon {
-/*
-  display: inline-block;
-  border-radius: 60px;
-  box-shadow: 0px 0px 2px #888;
-  padding: 0.5em 0.6em;
-  */
-  border-radius:50% 50%;
-  color: white;
-  height: 1.6em;
-  width: 1.6em;
-  background-color: #59838C;
-
-
-}
-
-#phone-icon-centerer {
-  height: 100%;
-}
-.text-input-class {
-  width: 100%;
-}
-
-#privacy-checkbox {
-  font-size: 16px;
-}
-.three-img {
-  width: 150px;
-}
-.three-img-sm {
-  width: 100px;
-}
-.three-img-txt {
-  font-size: 20px;
-  font-weight: 500;
-  color: #000000;
-}
 
 #first-phrase {
   margin-bottom: 15px;
-}
-
-.page-section {
-  margin-bottom: 25px;
 }
 
 .idle {
@@ -123,39 +76,9 @@ pre-remove {
   */
 }
 
-.noImageSmallIntro {
-  margin-top: 0% !important;
-}
 
-.levelLargeHeader {
-  font-size: 55px;
-  font-weight: 700;
-  margin-bottom: 5%;
-  /*
-  margin-left: 20%;
 
-   */
-}
 
-.levelLargeHeader-md {
-  font-size: 35px;
-  font-weight: 700;
-  margin-bottom: 5%;
-}
-
-.contact-info {
-  width: 100%;
-}
-
-.levelParagraph {
-  font-size: 20px;
-  font-weight: 500;
-}
-
-.levelImg {
-  height: 300px;
-  margin: 10px;
-}
 
 .imageLeft {
   margin-left: 20%;
@@ -193,3 +116,11 @@ pre-remove {
   margin-bottom: 15px
 }
 
+.scopri-di-piu {
+  width: 100%;
+  font-family: GothamBold;
+  font-size: 30px;
+  background-color: #59838C;
+  color: white;
+  border-radius: 20px;
+}
