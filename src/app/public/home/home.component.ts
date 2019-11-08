@@ -59,9 +59,7 @@ export class HomeComponent implements OnInit {
   }
 
   goToMain() {
-
     window.location.href = 'https://www.parkinsoncare.com';
-    //this.router.navigate(['https://www.parkinsoncare.com']);
   }
 
 }
