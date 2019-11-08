@@ -21,18 +21,33 @@
     </div>
 
     <div fxLayout="row" fxLayoutAlign="start center" class="phone-us-row" fxLayoutGap="10px">
-      <div fxFlex="0 0 auto" id="chiamaci" >
+      <div fxFlex="0 1a auto" id="chiamaci" >
         Chiamaci per sapere come funziona
       </div>
     </div>
 
     <div fxLayout="row" fxLayoutAlign="start center" class="phone-us-row" fxLayoutGap="10px">
-      <div fxFlex="0 0 auto" id="phone-icon" >
-        <div fxLayout="row" fxLayoutAlign="center center" id="phone-icon-centerer"><mat-icon fxFlex="0 0 auto">phone</mat-icon></div>
+      <div fxFlex="0 0 auto" id="phone-icon" fxHide.lt-md  fxShow.lt-sm >
+        <a class="button-look" href="tel:+39-02-21079073">
+          <div fxLayout="row" fxLayoutAlign="center center" id="phone-icon-centerer">
+            <mat-icon fxFlex="0 0 auto">phone</mat-icon>
+          </div>
+        </a>
       </div>
 
       <div fxFlex="1 0 auto" class="button-look">
-        <div fxLayout="row" fxLayoutAlign="center center"><div fxFlex="0 0 auto">+39 02 21079073</div></div>
+        <a class="button-look" href="tel:+39-02-21079073">
+          <div fxLayout="column" fxLayoutAlign="center center">
+            <div fxFlex="0 0 auto">+39 02 21079073</div>
+          </div>
+        </a>
+      </div>
+
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="center center" class="phone-us-row" fxLayoutGap="10px">
+      <div fxFlex="0 0 auto" id="orari" >
+        Lunedì a venerdì dalle 9 alle 18, oppure scrivici sotto.
       </div>
     </div>
   </div>
