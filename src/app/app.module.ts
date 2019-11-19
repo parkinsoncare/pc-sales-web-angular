@@ -24,6 +24,8 @@ import { ComEComponent } from './components/home-components/com-e/com-e.componen
 import { PcareIntroComponent } from './components/home-components/pcare-intro/pcare-intro.component';
 import { CallMeComponent } from './components/home-components/call-me/call-me.component';
 import { ChiSiamoComponent } from './components/home-components/chi-siamo/chi-siamo.component';
+import { QuestionsComponent } from './components/home-components/questions/questions.component';
+import { DiscountCodeComponent } from './components/home-components/discount-code/discount-code.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { ChiSiamoComponent } from './components/home-components/chi-siamo/chi-si
     PcareIntroComponent,
     CallMeComponent,
     ChiSiamoComponent,
+    QuestionsComponent,
+    DiscountCodeComponent,
   ],
   imports: [
     BrowserModule,
