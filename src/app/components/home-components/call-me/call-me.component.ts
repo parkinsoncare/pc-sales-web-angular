@@ -4,7 +4,7 @@ import { environment } from '../../../../environments/environment';
 import { RestService } from '../../../services/rest/rest.service';
 import { Router } from '@angular/router';
 import { SendMailService } from '../../../services/send-mail/send-mail.service';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-call-me',
