@@ -11,9 +11,9 @@ import { SidebarMenuComponent } from '../../components/sidebar-menu/sidebar-menu
 })
 export class PublicRootComponent implements OnInit {
 
-  @ViewChild(SidebarMenuComponent) sidebarMenu: SidebarMenuComponent;
-  @ViewChild(MatSidenav, { static: true }) sidenav: MatSidenav;
-  @ViewChild(MatSidenavContainer) sidenavContainer: MatSidenavContainer;
+  @ViewChild(SidebarMenuComponent, { static: false }) sidebarMenu: SidebarMenuComponent;
+  @ViewChild(MatSidenav, { static: false }) sidenav: MatSidenav;
+  @ViewChild(MatSidenavContainer, { static: false }) sidenavContainer: MatSidenavContainer;
   menuToggleBroadcastSubscription: Subscription;
   textToggleBroadcastSubscription: Subscription;
 
