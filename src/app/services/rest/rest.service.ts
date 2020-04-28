@@ -54,4 +54,8 @@ export class RestService {
   setUsersStripeCustomerId(params:any): Observable <any> {
     return this.http.post(environment.restServiceURL + '/admin/setUsersStripeCustomerId', params);
   }
+
+  adminGetLogs(params: any): Observable <any> {
+    return this.http.post(environment.restServiceURL + '/admin/getLogs', params);
+  }
 }
